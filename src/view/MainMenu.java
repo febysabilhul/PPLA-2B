@@ -18,7 +18,8 @@ public class MainMenu extends javax.swing.JFrame {
         usernameFrame.setLocationRelativeTo(this);
 
     }
-
+    
+    
     public JButton getBtnAbout() {
         return tentangB;
     }
@@ -82,18 +83,28 @@ public class MainMenu extends javax.swing.JFrame {
         usernameFrame.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         fieldUsername.setText("jTextField1");
-        usernameFrame.getContentPane().add(fieldUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, -1, -1));
+        usernameFrame.getContentPane().add(fieldUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, 370, 90));
 
         btnBatal.setText("jButton1");
-        usernameFrame.getContentPane().add(btnBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, -1, -1));
+        usernameFrame.getContentPane().add(btnBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
 
         btnOk.setText("jButton1");
-        usernameFrame.getContentPane().add(btnOk, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, -1, -1));
+        btnOk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOkActionPerformed(evt);
+            }
+        });
+        usernameFrame.getContentPane().add(btnOk, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 290, 120, 70));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         mainB.setText("Permainan Baru");
+        mainB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mainBActionPerformed(evt);
+            }
+        });
         getContentPane().add(mainB, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 90, 160, 60));
 
         petunjukB.setText("Petunjuk");
@@ -113,11 +124,18 @@ public class MainMenu extends javax.swing.JFrame {
         getContentPane().add(tentangB, new org.netbeans.lib.awtextra.AbsoluteConstraints(953, 323, 170, 50));
 
         keluarB.setText("Keluar");
+        keluarB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                keluarBActionPerformed(evt);
+            }
+        });
         getContentPane().add(keluarB, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 410, 180, 50));
 
         Load.setText("Lanjutkan");
         getContentPane().add(Load, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 173, 180, 50));
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, 3, 1370, 770));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Home.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -80, 800, 750));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -129,6 +147,18 @@ public class MainMenu extends javax.swing.JFrame {
     private void tentangBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tentangBActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tentangBActionPerformed
+
+    private void mainBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainBActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mainBActionPerformed
+
+    private void keluarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keluarBActionPerformed
+dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_keluarBActionPerformed
+
+    private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnOkActionPerformed
 
     /**
      * @param args the command line arguments

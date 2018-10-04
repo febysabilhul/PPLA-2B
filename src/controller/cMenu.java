@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package controller;
 
 import java.awt.event.ActionEvent;
@@ -16,6 +12,7 @@ import view.Petunjuk;
 import view.Tentang;
 import view.load;
 import model.m_player;
+import model.m_aset;
 
 /**
  *
@@ -28,17 +25,25 @@ public class cMenu {
     private MainMenu viewMenu;
     private load viewLoad;
     private m_player mPlayer;
+     private m_aset mAset;
 
     public cMenu() throws SQLException, InterruptedException {
         viewMenu = new MainMenu();
         viewtentang = new Tentang();
         viewLoad = new load();
         mPlayer = new m_player();
+        mAset = new m_aset();
         viewMenu.getBtnMulai().addActionListener(new mulaiAction());
           viewMenu.getBtnAbout().addActionListener(new aboutAction());
           viewMenu.getBtnPetunjuk().addActionListener(new aboutAction());
+          viewMenu.getBtnOk().addActionListener(new OkAction());
+          viewtentang.getBtnKembali().addActionListener(new kembaliAction());
+          viewMenu.setVisible(true);
+          
 
     }
+    
+    
        private class aboutAction implements ActionListener {
 
         @Override
@@ -47,6 +52,15 @@ public class cMenu {
             viewMenu.setVisible(false);
         }
 
+    }
+       private class kembaliAction implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            viewtentang.setVisible(false);
+            viewMenu.setVisible(true);
+        }
+        
     }
        
        private class petunjukAction implements ActionListener {
@@ -63,6 +77,8 @@ public class cMenu {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+             viewMenu.getUsernameFrame().setVisible(true);
+//             viewMenu.setExtendedState(usernameFrame.MAXIMIZED_BOTH);
         }
     }
      private class keluarAction implements ActionListener {
@@ -75,4 +91,31 @@ public class cMenu {
         }
 
     }
+      private class OkAction implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            try {
+
+                if (viewMenu.getFieldUsername().getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(viewMenu, "Username tidak boleh kosong");
+                } else {
+                    mPlayer.insertUsername(viewMenu.getFieldUsername().getText());
+//                    mAset.insertAset();
+                    
+                    JOptionPane.showMessageDialog(viewMenu, "Username " + viewMenu.getFieldUsername().getText() + " berhasil dibuat");
+                    new c_home(viewMenu.getFieldUsername().getText());
+                    viewMenu.getUsernameFrame().dispose();
+                    viewMenu.setVisible(false);
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(cMenu.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+
+    }
+     
+     
+   
 }

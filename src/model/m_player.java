@@ -12,9 +12,19 @@ import java.sql.Statement;
 import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
 
-public class m_player {
+public class m_player extends m_function{
      private ResultSet rs;
         public m_player() throws SQLException {
 
+    }
+        public int cekId() throws SQLException {
+        String query = "select id_user from user where id_user = ";
+        return checkId(query);
+    }
+
+    public boolean insertUsername(String username) throws SQLException {
+         int id = cekId();
+        String query = "INSERT INTO `user` values ('" + id + "','" + username + "')";
+        return getStatusQuery(query);
     }
 }

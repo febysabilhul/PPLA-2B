@@ -5,6 +5,9 @@
  */
 package view;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
+
 /**
  *
  * @author BoniBarBar
@@ -17,6 +20,33 @@ public class home extends javax.swing.JFrame {
     public home() {
         initComponents();
     }
+    
+ public JButton getBtntoko() {
+        return toko;
+    }
+
+    public JButton getBtnkeranjang() {
+        return keranjang;
+    }
+
+    public JButton getBtngunting() {
+        return gunting;
+    }
+
+    public JButton getBtnpenyiram() {
+        return penyiram;
+    }
+
+    public JButton getBtnkeluar() {
+        return keluar;
+    }
+    
+ 
+    public JLabel getLabelUsername() {
+        return username;
+    }
+
+  
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,13 +58,15 @@ public class home extends javax.swing.JFrame {
     private void initComponents() {
 
         toko = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        btnair = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        username = new javax.swing.JLabel();
+        penyiram = new javax.swing.JButton();
+        gunting = new javax.swing.JButton();
         jmlbibit = new javax.swing.JLabel();
         jmlpupuk = new javax.swing.JLabel();
         jmlpoin = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        keranjang = new javax.swing.JButton();
+        keluar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -47,14 +79,24 @@ public class home extends javax.swing.JFrame {
         });
         getContentPane().add(toko, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, 60, 50));
 
-        jLabel1.setText("Nama player");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 90, 30));
+        username.setText("Nama player");
+        getContentPane().add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 410, 130, 40));
 
-        btnair.setText("Penyiram");
-        getContentPane().add(btnair, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 263, 80, 60));
+        penyiram.setText("Penyiram");
+        penyiram.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                penyiramActionPerformed(evt);
+            }
+        });
+        getContentPane().add(penyiram, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 260, 80, 60));
 
-        jButton1.setText("Clurit");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 193, 80, 60));
+        gunting.setText("gunting");
+        gunting.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guntingActionPerformed(evt);
+            }
+        });
+        getContentPane().add(gunting, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 190, 80, 60));
 
         jmlbibit.setText("jmlbibit");
         getContentPane().add(jmlbibit, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, 70, 40));
@@ -65,8 +107,24 @@ public class home extends javax.swing.JFrame {
         jmlpoin.setText("jmlpoin");
         getContentPane().add(jmlpoin, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
 
-        jButton2.setText("keranjang");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 80, 50));
+        keranjang.setText("keranjang");
+        keranjang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                keranjangActionPerformed(evt);
+            }
+        });
+        getContentPane().add(keranjang, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 80, 50));
+
+        keluar.setText("Keluar");
+        keluar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                keluarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(keluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 283, -1, 50));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Lahan.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 880, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -74,6 +132,22 @@ public class home extends javax.swing.JFrame {
     private void tokoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tokoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tokoActionPerformed
+
+    private void keranjangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keranjangActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_keranjangActionPerformed
+
+    private void guntingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guntingActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_guntingActionPerformed
+
+    private void penyiramActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_penyiramActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_penyiramActionPerformed
+
+    private void keluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keluarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_keluarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -111,13 +185,17 @@ public class home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnair;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton gunting;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jmlbibit;
     private javax.swing.JLabel jmlpoin;
     private javax.swing.JLabel jmlpupuk;
+    private javax.swing.JButton keluar;
+    private javax.swing.JButton keranjang;
+    private javax.swing.JButton penyiram;
     private javax.swing.JButton toko;
+    private javax.swing.JLabel username;
     // End of variables declaration//GEN-END:variables
+
+  
 }

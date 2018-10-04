@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package koneksi;
 
 
@@ -17,15 +13,15 @@ public class koneksi {
     Connection con;
     Statement stm;
     
-     public koneksi(String username, String password, String db) throws SQLException {
-        String url = "jdbc:postgresql://localhost:5432/"+db;
-        String username = "";
+      public koneksi() throws SQLException {
+        String url = "jdbc:mysql://localhost:3306/ppl_mr.kopi";
+        String username = "root";
         String pass = "";
 
         this.con = (Connection) DriverManager.getConnection(url, username, pass);
         this.stm = (Statement) this.con.createStatement();
     }
- public void executeQuery(String query) throws SQLException {
+    public void executeQuery(String query) throws SQLException {
         this.stm.execute(query);
     }
 
@@ -35,7 +31,7 @@ public class koneksi {
     }
 
 }
-    
+
     
     
     

@@ -13,6 +13,10 @@ public class Petunjuk extends javax.swing.JFrame {
     public Petunjuk() {
         initComponents();
     }
+        public JButton getBtnKembali() {
+        return btnKembali;
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -23,11 +27,17 @@ public class Petunjuk extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnKembali = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 4, 1360, 760));
+
+        btnKembali.setText("Kembali");
+        getContentPane().add(btnKembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Help.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 1360, 760));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -68,6 +78,7 @@ public class Petunjuk extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnKembali;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
