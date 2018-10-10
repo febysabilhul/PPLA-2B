@@ -3,10 +3,15 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.sql.SQLException;
 import java.util.logging.Level;
+import javax.swing.JFrame;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import view.MainMenu;
 import view.Petunjuk;
 import view.Tentang;
@@ -22,27 +27,53 @@ public class cMenu {
 
     private Tentang viewtentang;
     private Petunjuk viewpetunjuk;
-    private MainMenu viewMenu;
+    public MainMenu viewMenu;
     private load viewLoad;
     private m_player mPlayer;
      private m_aset mAset;
-
+         AudioInputStream audio;
+ Clip clip;
     public cMenu() throws SQLException, InterruptedException {
         viewMenu = new MainMenu();
         viewtentang = new Tentang();
         viewLoad = new load();
         mPlayer = new m_player();
         mAset = new m_aset();
+          music();
         viewMenu.getBtnMulai().addActionListener(new mulaiAction());
           viewMenu.getBtnAbout().addActionListener(new aboutAction());
-          viewMenu.getBtnPetunjuk().addActionListener(new aboutAction());
           viewMenu.getBtnOk().addActionListener(new OkAction());
           viewtentang.getBtnKembali().addActionListener(new kembaliAction());
+            viewMenu.klikvol(new acttombolvolume());
           viewMenu.setVisible(true);
           
 
     }
-    
+
+   public void music() {
+        try {
+            audio = AudioSystem.getAudioInputStream(new File("src//ost//ost.wav"));
+            clip = AudioSystem.getClip();
+            clip.open(audio);
+            clip.start();
+            clip.loop(Clip.LOOP_CONTINUOUSLY);
+        } catch (Exception ex) {
+            Logger.getLogger(cMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+private class acttombolvolume implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            if (clip.isRunning()) {
+                clip.stop();
+                viewMenu.vol.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ost/MusicOff.png"))); // NOI18N
+            } else {
+                clip.start();
+                viewMenu.vol.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ost/MusicOn.png"))); // NOI18N
+            }
+        }
+    }
     
        private class aboutAction implements ActionListener {
 
@@ -76,9 +107,9 @@ public class cMenu {
     private class mulaiAction implements ActionListener {
 
         @Override
-        public void actionPerformed(ActionEvent e) {
-             viewMenu.getUsernameFrame().setVisible(true);
-//             viewMenu.setExtendedState(usernameFrame.MAXIMIZED_BOTH);
+        public void actionPerformed(ActionEvent e) {         
+                viewMenu.getUsernameFrame().setVisible(true);
+               
         }
     }
      private class keluarAction implements ActionListener {

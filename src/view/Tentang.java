@@ -41,16 +41,17 @@ public class Tentang extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnKembali.setText("Kembali");
+        btnKembali.setBorderPainted(false);
+        btnKembali.setContentAreaFilled(false);
         btnKembali.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnKembaliActionPerformed(evt);
             }
         });
-        getContentPane().add(btnKembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 463, 180, 60));
+        getContentPane().add(btnKembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 50, 60));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Info.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 770));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Menu/Info.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -80, 1370, 770));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

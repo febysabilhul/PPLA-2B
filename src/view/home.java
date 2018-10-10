@@ -36,7 +36,9 @@ public class home extends javax.swing.JFrame {
     public JButton getBtnpenyiram() {
         return penyiram;
     }
-
+ public JLabel getLblBibit() {
+        return jmlbibit;
+    }
     public JButton getBtnkeluar() {
         return keluar;
     }
@@ -45,6 +47,53 @@ public class home extends javax.swing.JFrame {
     public JLabel getLabelUsername() {
         return username;
     }
+ public JButton getBtnKotak1() {
+        return petak1;
+    }
+
+  public JButton getBtnKotak2() {
+        return petak2;
+    }
+   public JButton getBtnKotak3() {
+        return petak3;
+    }
+    public JButton getBtnKotak4() {
+        return petak4;
+    }
+     public JButton getBtnKotak5() {
+        return petak5;
+    }
+      public JButton getBtnKotak6() {
+        return petak6;
+    }
+  public JLabel getLblAir1() {
+        return air1;
+    }
+
+    public JLabel getLblAir2() {
+        return air2;
+    }
+
+    public JLabel getLblAir3() {
+        return air3;
+    }
+
+    public JLabel getLblAir4() {
+        return air4;
+    }
+
+    public JLabel getLblAir5() {
+        return air5;
+    }
+
+    public JLabel getLblAir6() {
+        return air6;
+    }
+
+    
+    
+
+
 
   
 
@@ -66,6 +115,18 @@ public class home extends javax.swing.JFrame {
         jmlpoin = new javax.swing.JLabel();
         keranjang = new javax.swing.JButton();
         keluar = new javax.swing.JButton();
+        petak1 = new javax.swing.JButton();
+        petak2 = new javax.swing.JButton();
+        petak3 = new javax.swing.JButton();
+        petak4 = new javax.swing.JButton();
+        petak5 = new javax.swing.JButton();
+        petak6 = new javax.swing.JButton();
+        air1 = new javax.swing.JLabel();
+        air2 = new javax.swing.JLabel();
+        air3 = new javax.swing.JLabel();
+        air4 = new javax.swing.JLabel();
+        air6 = new javax.swing.JLabel();
+        air5 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -88,7 +149,7 @@ public class home extends javax.swing.JFrame {
                 penyiramActionPerformed(evt);
             }
         });
-        getContentPane().add(penyiram, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 260, 80, 60));
+        getContentPane().add(penyiram, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 260, 80, 60));
 
         gunting.setText("gunting");
         gunting.addActionListener(new java.awt.event.ActionListener() {
@@ -121,7 +182,49 @@ public class home extends javax.swing.JFrame {
                 keluarActionPerformed(evt);
             }
         });
-        getContentPane().add(keluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 283, -1, 50));
+        getContentPane().add(keluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 560, 80, 30));
+
+        petak1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/tanah kosong.png"))); // NOI18N
+        petak1.setText("jButton1");
+        getContentPane().add(petak1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, 80, 50));
+
+        petak2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/tanah kosong.png"))); // NOI18N
+        petak2.setText("jButton2");
+        getContentPane().add(petak2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 443, 90, 50));
+
+        petak3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/tanah kosong.png"))); // NOI18N
+        petak3.setText("jButton3");
+        getContentPane().add(petak3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 443, 90, 50));
+
+        petak4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/tanah kosong.png"))); // NOI18N
+        petak4.setText("jButton4");
+        getContentPane().add(petak4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 273, 90, 50));
+
+        petak5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/tanah kosong.png"))); // NOI18N
+        petak5.setText("jButton5");
+        getContentPane().add(petak5, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 440, 90, 50));
+
+        petak6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/tanah kosong.png"))); // NOI18N
+        petak6.setText("jButton6");
+        getContentPane().add(petak6, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 270, 80, 50));
+
+        air1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/notif air.png"))); // NOI18N
+        getContentPane().add(air1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 60, 60));
+
+        air2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/notif air.png"))); // NOI18N
+        getContentPane().add(air2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 370, -1, -1));
+
+        air3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/notif air.png"))); // NOI18N
+        getContentPane().add(air3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, 70, 70));
+
+        air4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/notif air.png"))); // NOI18N
+        getContentPane().add(air4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 374, 70, 60));
+
+        air6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/notif air.png"))); // NOI18N
+        getContentPane().add(air6, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 184, 60, 70));
+
+        air5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/notif air.png"))); // NOI18N
+        getContentPane().add(air5, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 374, 60, 60));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Lahan.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 880, 600));
@@ -185,6 +288,12 @@ public class home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel air1;
+    private javax.swing.JLabel air2;
+    private javax.swing.JLabel air3;
+    private javax.swing.JLabel air4;
+    private javax.swing.JLabel air5;
+    private javax.swing.JLabel air6;
     private javax.swing.JButton gunting;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jmlbibit;
@@ -193,9 +302,16 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JButton keluar;
     private javax.swing.JButton keranjang;
     private javax.swing.JButton penyiram;
+    private javax.swing.JButton petak1;
+    private javax.swing.JButton petak2;
+    private javax.swing.JButton petak3;
+    private javax.swing.JButton petak4;
+    private javax.swing.JButton petak5;
+    private javax.swing.JButton petak6;
     private javax.swing.JButton toko;
     private javax.swing.JLabel username;
     // End of variables declaration//GEN-END:variables
+
 
   
 }

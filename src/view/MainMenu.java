@@ -5,53 +5,50 @@
  */
 package view;
 
+import java.awt.event.ActionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import sun.audio.*;
 public class MainMenu extends javax.swing.JFrame {
 
-    public MainMenu() {
+    public MainMenu()throws InterruptedException {
         initComponents();
         this.setLocationRelativeTo(this);
         usernameFrame.setLocationRelativeTo(this);
-
+        usernameFrame.setExtendedState(usernameFrame.getExtendedState()| usernameFrame.MAXIMIZED_BOTH);
     }
-    
-    
     public JButton getBtnAbout() {
         return tentangB;
     }
-
     public JButton getBtnLoad() {
         return Load;
     }
-
     public JButton getBtnKeluar() {
         return keluarB;
     }
-
     public JButton getBtnMulai() {
         return mainB;
     }
-
-    public JButton getBtnPetunjuk() {
-        return petunjukB;
-    }
-
     public JButton getBtnBatal() {
         return btnBatal;
     }
-
+     public void klikvol(ActionListener a) {
+        vol.addActionListener(a);
+    }
     public JButton getBtnOk() {
         return btnOk;
     }
-
     public JTextField getFieldUsername() {
         return fieldUsername;
     }
-
     public void tampilPesan(String pesan) {
         JOptionPane.showMessageDialog(this, pesan);
     }
@@ -73,83 +70,95 @@ public class MainMenu extends javax.swing.JFrame {
         fieldUsername = new javax.swing.JTextField();
         btnBatal = new javax.swing.JButton();
         btnOk = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         mainB = new javax.swing.JButton();
-        petunjukB = new javax.swing.JButton();
         tentangB = new javax.swing.JButton();
         keluarB = new javax.swing.JButton();
         Load = new javax.swing.JButton();
+        vol = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         usernameFrame.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        fieldUsername.setText("jTextField1");
-        usernameFrame.getContentPane().add(fieldUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, 370, 90));
+        fieldUsername.setBorder(null);
+        fieldUsername.setOpaque(false);
+        usernameFrame.getContentPane().add(fieldUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, 220, 40));
 
-        btnBatal.setText("jButton1");
-        usernameFrame.getContentPane().add(btnBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
+        btnBatal.setBorderPainted(false);
+        btnBatal.setContentAreaFilled(false);
+        usernameFrame.getContentPane().add(btnBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 260, 50, 30));
 
-        btnOk.setText("jButton1");
+        btnOk.setBorderPainted(false);
+        btnOk.setContentAreaFilled(false);
         btnOk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOkActionPerformed(evt);
             }
         });
-        usernameFrame.getContentPane().add(btnOk, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 290, 120, 70));
+        usernameFrame.getContentPane().add(btnOk, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 260, 60, 30));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Menu/GameBaru.png"))); // NOI18N
+        usernameFrame.getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 520, 150));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Menu/HomeBlur.png"))); // NOI18N
+        usernameFrame.getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 810, 600));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        mainB.setText("Permainan Baru");
+        mainB.setBorderPainted(false);
+        mainB.setContentAreaFilled(false);
         mainB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mainBActionPerformed(evt);
             }
         });
-        getContentPane().add(mainB, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 90, 160, 60));
+        getContentPane().add(mainB, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 230, 210, 60));
 
-        petunjukB.setText("Petunjuk");
-        petunjukB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                petunjukBActionPerformed(evt);
-            }
-        });
-        getContentPane().add(petunjukB, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 260, 170, 40));
-
-        tentangB.setText("Tentang");
+        tentangB.setBorderPainted(false);
+        tentangB.setContentAreaFilled(false);
         tentangB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tentangBActionPerformed(evt);
             }
         });
-        getContentPane().add(tentangB, new org.netbeans.lib.awtextra.AbsoluteConstraints(953, 323, 170, 50));
+        getContentPane().add(tentangB, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 530, 60, 60));
 
-        keluarB.setText("Keluar");
+        keluarB.setBorderPainted(false);
+        keluarB.setContentAreaFilled(false);
         keluarB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 keluarBActionPerformed(evt);
             }
         });
-        getContentPane().add(keluarB, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 410, 180, 50));
+        getContentPane().add(keluarB, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 530, 120, 50));
 
-        Load.setText("Lanjutkan");
-        getContentPane().add(Load, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 173, 180, 50));
+        Load.setBorderPainted(false);
+        Load.setContentAreaFilled(false);
+        getContentPane().add(Load, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 310, 180, 70));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Home.png"))); // NOI18N
+        vol.setBorderPainted(false);
+        vol.setContentAreaFilled(false);
+        vol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volActionPerformed(evt);
+            }
+        });
+        getContentPane().add(vol, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 523, 60, 60));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Menu/Home.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -80, 800, 750));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void petunjukBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_petunjukBActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_petunjukBActionPerformed
 
     private void tentangBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tentangBActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tentangBActionPerformed
 
     private void mainBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainBActionPerformed
-        // TODO add your handling code here:
+ dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_mainBActionPerformed
 
     private void keluarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keluarBActionPerformed
@@ -159,6 +168,10 @@ dispose();        // TODO add your handling code here:
     private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnOkActionPerformed
+
+    private void volActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_volActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,7 +203,11 @@ dispose();        // TODO add your handling code here:
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainMenu().setVisible(true);
+                try {
+                    new MainMenu().setVisible(true);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -201,11 +218,13 @@ dispose();        // TODO add your handling code here:
     private javax.swing.JButton btnOk;
     private javax.swing.JTextField fieldUsername;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JButton keluarB;
     private javax.swing.JButton mainB;
-    private javax.swing.JButton petunjukB;
     private javax.swing.JButton tentangB;
     private javax.swing.JFrame usernameFrame;
+    public javax.swing.JButton vol;
     // End of variables declaration//GEN-END:variables
 
 }
