@@ -19,11 +19,13 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import sun.audio.*;
 public class MainMenu extends javax.swing.JFrame {
 
+    
     public MainMenu()throws InterruptedException {
         initComponents();
         this.setLocationRelativeTo(this);
-        usernameFrame.setLocationRelativeTo(this);
-        usernameFrame.setExtendedState(usernameFrame.getExtendedState()| usernameFrame.MAXIMIZED_BOTH);
+//        usernameFrame.setLocationRelativeTo(this);
+//        usernameFrame.setExtendedState(usernameFrame.getExtendedState()| usernameFrame.MAXIMIZED_BOTH);
+        usernameFrame.setSize(800,600);
     }
     public JButton getBtnAbout() {
         return tentangB;
@@ -79,6 +81,9 @@ public class MainMenu extends javax.swing.JFrame {
         vol = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
+        usernameFrame.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        usernameFrame.setMaximumSize(new java.awt.Dimension(800, 630));
+        usernameFrame.setPreferredSize(new java.awt.Dimension(800, 630));
         usernameFrame.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         fieldUsername.setBorder(null);
@@ -105,10 +110,12 @@ public class MainMenu extends javax.swing.JFrame {
         usernameFrame.getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 810, 600));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(800, 630));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         mainB.setBorderPainted(false);
         mainB.setContentAreaFilled(false);
+        mainB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         mainB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mainBActionPerformed(evt);
@@ -136,6 +143,7 @@ public class MainMenu extends javax.swing.JFrame {
 
         Load.setBorderPainted(false);
         Load.setContentAreaFilled(false);
+        Load.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(Load, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 310, 180, 70));
 
         vol.setBorderPainted(false);

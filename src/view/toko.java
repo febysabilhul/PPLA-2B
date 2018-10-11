@@ -5,6 +5,9 @@
  */
 package view;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
+
 /**
  *
  * @author BoniBarBar
@@ -17,6 +20,24 @@ public class toko extends javax.swing.JFrame {
     public toko() {
         initComponents();
     }
+ public JButton getBtnItem1() {
+        return btnItem1;
+    }
+
+    public JButton getBtnItem2() {
+        return btnItem2;
+    }
+     public JLabel getLblKoin() {
+        return lblKoin;
+    }
+
+    public JLabel getLblBibit() {
+        return lblBibit;
+    }
+
+    public JLabel getLblPupuk() {
+        return lblBibit;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,34 +48,65 @@ public class toko extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jmlpupuk = new javax.swing.JTextField();
-        jmlbibit = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnItem1 = new javax.swing.JButton();
+        btnKembali = new javax.swing.JButton();
+        btnItem2 = new javax.swing.JButton();
+        lblKoin = new javax.swing.JLabel();
+        lblBibit = new javax.swing.JLabel();
+        lblPupuk = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("ikon pupuk");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 100, 100));
+        btnItem1.setText("bibit x5");
+        btnItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnItem1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnItem1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 90, 50));
 
-        jLabel3.setText("ikon bibit");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, 80, 80));
-        getContentPane().add(jmlpupuk, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 110, -1));
-        getContentPane().add(jmlbibit, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 110, -1));
+        btnKembali.setText("Kembali");
+        btnKembali.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKembaliActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnKembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 243, 100, 40));
 
-        jButton1.setText("beli");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 90, 50));
+        btnItem2.setText("pupuk x5");
+        btnItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnItem2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnItem2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, -1, 50));
 
-        jButton2.setText("Kembali");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 243, 100, 40));
+        lblKoin.setText("lbl koin");
+        getContentPane().add(lblKoin, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
+
+        lblBibit.setText("lbl bibit");
+        getContentPane().add(lblBibit, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, -1));
+
+        lblPupuk.setText("lbl pupuk");
+        getContentPane().add(lblPupuk, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, -1, -1));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKembaliActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnKembaliActionPerformed
+
+    private void btnItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnItem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnItem1ActionPerformed
+
+    private void btnItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnItem2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -92,12 +144,12 @@ public class toko extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnItem1;
+    private javax.swing.JButton btnItem2;
+    private javax.swing.JButton btnKembali;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField jmlbibit;
-    private javax.swing.JTextField jmlpupuk;
+    private javax.swing.JLabel lblBibit;
+    private javax.swing.JLabel lblKoin;
+    private javax.swing.JLabel lblPupuk;
     // End of variables declaration//GEN-END:variables
 }

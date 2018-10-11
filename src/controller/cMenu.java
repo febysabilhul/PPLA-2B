@@ -1,4 +1,3 @@
-
 package controller;
 
 import java.awt.event.ActionEvent;
@@ -30,27 +29,27 @@ public class cMenu {
     public MainMenu viewMenu;
     private load viewLoad;
     private m_player mPlayer;
-     private m_aset mAset;
-         AudioInputStream audio;
- Clip clip;
+    private m_aset mAset;
+    AudioInputStream audio;
+    Clip clip;
+
     public cMenu() throws SQLException, InterruptedException {
         viewMenu = new MainMenu();
         viewtentang = new Tentang();
         viewLoad = new load();
         mPlayer = new m_player();
         mAset = new m_aset();
-          music();
+        music();
         viewMenu.getBtnMulai().addActionListener(new mulaiAction());
-          viewMenu.getBtnAbout().addActionListener(new aboutAction());
-          viewMenu.getBtnOk().addActionListener(new OkAction());
-          viewtentang.getBtnKembali().addActionListener(new kembaliAction());
-            viewMenu.klikvol(new acttombolvolume());
-          viewMenu.setVisible(true);
-          
+        viewMenu.getBtnAbout().addActionListener(new aboutAction());
+        viewMenu.getBtnOk().addActionListener(new OkAction());
+        viewtentang.getBtnKembali().addActionListener(new kembaliAction());
+        viewMenu.klikvol(new acttombolvolume());
+        viewMenu.setVisible(true);
 
     }
 
-   public void music() {
+    public void music() {
         try {
             audio = AudioSystem.getAudioInputStream(new File("src//ost//ost.wav"));
             clip = AudioSystem.getClip();
@@ -61,7 +60,8 @@ public class cMenu {
             Logger.getLogger(cMenu.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-private class acttombolvolume implements ActionListener {
+
+    private class acttombolvolume implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent ae) {
@@ -74,8 +74,8 @@ private class acttombolvolume implements ActionListener {
             }
         }
     }
-    
-       private class aboutAction implements ActionListener {
+
+    private class aboutAction implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -84,45 +84,48 @@ private class acttombolvolume implements ActionListener {
         }
 
     }
-       private class kembaliAction implements ActionListener {
+
+    private class kembaliAction implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
             viewtentang.setVisible(false);
             viewMenu.setVisible(true);
         }
-        
+
     }
-       
-       private class petunjukAction implements ActionListener {
+
+    private class petunjukAction implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-        viewpetunjuk.setVisible(true);
-        viewMenu.setVisible(false);
+            viewpetunjuk.setVisible(true);
+            viewMenu.setVisible(false);
         }
-           
-       }
+
+    }
 
     private class mulaiAction implements ActionListener {
 
         @Override
-        public void actionPerformed(ActionEvent e) {         
-                viewMenu.getUsernameFrame().setVisible(true);
-               
+        public void actionPerformed(ActionEvent e) {
+            viewMenu.getUsernameFrame().setVisible(true);
+
         }
     }
-     private class keluarAction implements ActionListener {
+
+    private class keluarAction implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (JOptionPane.showConfirmDialog(viewMenu, "Yakin Keluar Game..???",null,JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            if (JOptionPane.showConfirmDialog(viewMenu, "Yakin Keluar Game..???", null, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                 System.exit(0);
             }
         }
 
     }
-      private class OkAction implements ActionListener {
+
+    private class OkAction implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -132,8 +135,8 @@ private class acttombolvolume implements ActionListener {
                     JOptionPane.showMessageDialog(viewMenu, "Username tidak boleh kosong");
                 } else {
                     mPlayer.insertUsername(viewMenu.getFieldUsername().getText());
-//                    mAset.insertAset();
-                    
+                    mAset.insertAset();
+
                     JOptionPane.showMessageDialog(viewMenu, "Username " + viewMenu.getFieldUsername().getText() + " berhasil dibuat");
                     new c_home(viewMenu.getFieldUsername().getText());
                     viewMenu.getUsernameFrame().dispose();
@@ -146,7 +149,5 @@ private class acttombolvolume implements ActionListener {
         }
 
     }
-     
-     
-   
+
 }

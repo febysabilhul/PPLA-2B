@@ -33,12 +33,18 @@ private ResultSet rs;
         return getDataInt(query);
     }
 
-    public int getJagung(String idUser) throws SQLException {
-        String query = "SELECT jagung FROM `aset` where id_user = " + idUser;
+    public int getPupuk(String idUser) throws SQLException {
+        String query = "SELECT pupuk FROM `aset` where id_user = " + idUser;
         return getDataInt(query);
     }
 
- 
+    public int getObat(String idUser) throws SQLException {
+        String query = "SELECT obat FROM `aset` where id_user = " + idUser;
+        return getDataInt(query);
+    }
+
+
+    //==============================================================================================
     public boolean updateKoin(int koin, String idUser) throws SQLException {
         String query = "UPDATE `aset` SET `koin` = '" + koin + "' WHERE id_user = " + idUser;
         return getStatusQuery(query);
@@ -49,8 +55,18 @@ private ResultSet rs;
         return getStatusQuery(query);
     }
 
- 
+    public boolean updatePupuk(int pupuk, String idUser) throws SQLException {
+        String query = "UPDATE `aset` SET `pupuk` = '" + pupuk + "' WHERE id_user = " + idUser;
+        return getStatusQuery(query);
+    }
 
+    public boolean updateObat(int obat, String idUser) throws SQLException {
+        String query = "UPDATE `aset` SET `obat` = '" + obat + "' WHERE id_user = " + idUser;
+        return getStatusQuery(query);
+    }
+
+
+    //===========================================================================
     public int cekId() throws SQLException {
         String query = "select id_aset from aset where id_aset = ";
         return checkId(query);
@@ -58,8 +74,8 @@ private ResultSet rs;
 
     public boolean insertAset() throws SQLException {
         int id = cekId();
-        String query = "INSERT INTO `aset` VALUES (" + id + "," + id + ",1000,5,5,2,3,1,1,1)";
+        String query = "INSERT INTO `aset` VALUES (" + id + "," + id + ",1000,2,2,2)";
         return getStatusQuery(query);
     }
-    
+
 }

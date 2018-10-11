@@ -14,7 +14,7 @@ public class koneksi {
     Statement stm;
     
       public koneksi() throws SQLException {
-        String url = "jdbc:mysql://localhost:3306/ppl_mr.kopi";
+        String url = "jdbc:mysql://localhost:3306/pplb_mrkopi";
         String username = "root";
         String pass = "";
 
