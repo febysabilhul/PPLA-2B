@@ -44,7 +44,7 @@ private ResultSet rs;
     }
 
 
-    //==============================================================================================
+//    ==============================================================================================
     public boolean updateKoin(int koin, String idUser) throws SQLException {
         String query = "UPDATE `aset` SET `koin` = '" + koin + "' WHERE id_user = " + idUser;
         return getStatusQuery(query);
@@ -74,7 +74,7 @@ private ResultSet rs;
 
     public boolean insertAset() throws SQLException {
         int id = cekId();
-        String query = "INSERT INTO `aset` VALUES (" + id + "," + id + ",1000,2,2,2)";
+        String query = "INSERT INTO `aset` VALUES (" + id + "," + id + ",-1,2,2,2)";
         return getStatusQuery(query);
     }
 

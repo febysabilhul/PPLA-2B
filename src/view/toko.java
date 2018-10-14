@@ -8,26 +8,31 @@ package view;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
-/**
- *
- * @author BoniBarBar
- */
 public class toko extends javax.swing.JFrame {
 
-    /**
-     * Creates new form toko
-     */
     public toko() {
         initComponents();
+        this.setLocationRelativeTo(this);
+
     }
- public JButton getBtnItem1() {
+
+    public JButton getBtnItem1() {
         return btnItem1;
     }
 
     public JButton getBtnItem2() {
         return btnItem2;
     }
-     public JLabel getLblKoin() {
+
+    public JButton getBtnItem3() {
+        return btnItem3;
+    }
+
+    public JButton getBtnKembali() {
+        return btnKembali;
+    }
+
+    public JLabel getLblKoin() {
         return lblKoin;
     }
 
@@ -36,7 +41,11 @@ public class toko extends javax.swing.JFrame {
     }
 
     public JLabel getLblPupuk() {
-        return lblBibit;
+        return lblPupuk;
+    }
+
+    public JLabel getLblObat() {
+        return lblObat;
     }
 
     /**
@@ -49,49 +58,70 @@ public class toko extends javax.swing.JFrame {
     private void initComponents() {
 
         btnItem1 = new javax.swing.JButton();
-        btnKembali = new javax.swing.JButton();
         btnItem2 = new javax.swing.JButton();
+        btnItem3 = new javax.swing.JButton();
+        btnKembali = new javax.swing.JButton();
         lblKoin = new javax.swing.JLabel();
         lblBibit = new javax.swing.JLabel();
         lblPupuk = new javax.swing.JLabel();
+        lblObat = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(800, 630));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnItem1.setText("bibit x5");
+        btnItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/toko/Bibit Toko.png"))); // NOI18N
+        btnItem1.setBorderPainted(false);
+        btnItem1.setContentAreaFilled(false);
+        btnItem1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/toko/Bibit Toko Highlight.png"))); // NOI18N
         btnItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnItem1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnItem1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 90, 50));
+        getContentPane().add(btnItem1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 110, 140));
 
-        btnKembali.setText("Kembali");
-        btnKembali.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnKembaliActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnKembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 243, 100, 40));
-
-        btnItem2.setText("pupuk x5");
+        btnItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/toko/Pupuk Toko.png"))); // NOI18N
+        btnItem2.setBorderPainted(false);
+        btnItem2.setContentAreaFilled(false);
+        btnItem2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/toko/Pupuk Toko Highlight.png"))); // NOI18N
         btnItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnItem2ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnItem2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, -1, 50));
+        getContentPane().add(btnItem2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, 80, 110));
 
-        lblKoin.setText("lbl koin");
-        getContentPane().add(lblKoin, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
+        btnItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/toko/Pestisida Toko.png"))); // NOI18N
+        btnItem3.setBorderPainted(false);
+        btnItem3.setContentAreaFilled(false);
+        btnItem3.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/toko/Pestisida Toko Highlight.png"))); // NOI18N
+        getContentPane().add(btnItem3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 230, 90, 110));
 
-        lblBibit.setText("lbl bibit");
-        getContentPane().add(lblBibit, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, -1));
+        btnKembali.setBorderPainted(false);
+        btnKembali.setContentAreaFilled(false);
+        btnKembali.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKembaliActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnKembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 380, 40, 40));
 
-        lblPupuk.setText("lbl pupuk");
-        getContentPane().add(lblPupuk, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, -1, -1));
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
+        lblKoin.setFont(new java.awt.Font("Roboto Bk", 0, 11)); // NOI18N
+        getContentPane().add(lblKoin, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 470, 50, 30));
+
+        lblBibit.setFont(new java.awt.Font("Roboto Bk", 0, 11)); // NOI18N
+        getContentPane().add(lblBibit, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 70, 30));
+
+        lblPupuk.setFont(new java.awt.Font("Roboto Bk", 0, 11)); // NOI18N
+        getContentPane().add(lblPupuk, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, 70, 30));
+
+        lblObat.setFont(new java.awt.Font("Roboto Bk", 0, 11)); // NOI18N
+        getContentPane().add(lblObat, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 110, 70, 30));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/toko/yo.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -146,10 +176,12 @@ public class toko extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnItem1;
     private javax.swing.JButton btnItem2;
+    private javax.swing.JButton btnItem3;
     private javax.swing.JButton btnKembali;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblBibit;
     private javax.swing.JLabel lblKoin;
+    private javax.swing.JLabel lblObat;
     private javax.swing.JLabel lblPupuk;
     // End of variables declaration//GEN-END:variables
 }

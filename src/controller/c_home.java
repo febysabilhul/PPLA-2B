@@ -83,15 +83,6 @@ public class c_home {
         vHome.getBtnPetak6().addActionListener(new kotak6Action());
     }
 
-    private class tokoAction implements ActionListener {
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-
-        }
-
-    }
-
     private class cangkulAction implements ActionListener {
 
         @Override
@@ -101,14 +92,39 @@ public class c_home {
 
     }
 
+        private class tokoAction implements ActionListener {
+
+        private c_toko toko;
+
+        public tokoAction() throws SQLException {
+            toko = new c_toko(vHome, username);
+            toko.getView().setVisible(false);
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            try {
+                toko.getView().getLblKoin().setText(mAset.getKoin(mAset.cekIdPlayer(username)) + "");
+                toko.getView().getLblBibit().setText(mAset.getBibit(mAset.cekIdPlayer(username)) + "");
+                toko.getView().getLblPupuk().setText(mAset.getPupuk(mAset.cekIdPlayer(username)) + "");
+                toko.getView().getLblObat().setText(mAset.getObat(mAset.cekIdPlayer(username)) + "");
+               
+            } catch (SQLException ex) {
+                Logger.getLogger(c_home.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            toko.getView().setVisible(true);
+            vHome.setVisible(false);
+        }
+    }
+
     private class kotak1Action implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
             if (statusKotak[0] == 1) {//kosong
                 if (bibit > 0) {
-                    vHome.getBtnPetak1().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/TanamanCilik.png")));
-                    vHome.getBtnPetak1().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/TanamanCilik.png")));
+                    vHome.getBtnPetak1().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/CilikGandeng.png")));
+                    vHome.getBtnPetak1().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/CilikGandeng.png")));
                     statusKotak[0] = 2;
                     bibit -= 1;
                     try {
@@ -124,12 +140,6 @@ public class c_home {
                 vHome.getBtnPetak1().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/gundukan.png")));
                 vHome.getBtnPetak1().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/gundukan.png")));
                 kopi += random.nextInt((3 - 2) + 1) + 2;
-//                try {
-////                    mAset.updateJagung(jagung, mAset.cekIdPlayer(username));
-////                    vSawah.getLblJagung().setText(mAset.getJagung(mAset.cekIdPlayer(username)) + "");
-//                } catch (SQLException ex) {
-//                    Logger.getLogger(c_home.class.getName()).log(Level.SEVERE, null, ex);
-//                }
                 statusKotak[0] = 1;
                 statusSiram[0] = false;
                 statusTime1[0] = 0;
@@ -160,8 +170,8 @@ public class c_home {
         public void actionPerformed(ActionEvent e) {
             if (statusKotak[1] == 1) {//kosong
                 if (bibit > 0) {
-                    vHome.getBtnPetak2().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/TanamanCilik.png")));
-                    vHome.getBtnPetak2().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/TanamanCilik.png")));
+                    vHome.getBtnPetak2().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/CilikGandeng.png")));
+                    vHome.getBtnPetak2().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/CilikGandeng.png")));
                     statusKotak[0] = 2;
                     bibit -= 1;
                     try {
@@ -213,8 +223,8 @@ public class c_home {
         public void actionPerformed(ActionEvent e) {
             if (statusKotak[2] == 1) {//kosong
                 if (bibit > 0) {
-                    vHome.getBtnPetak3().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/TanamanCilik.png")));
-                    vHome.getBtnPetak3().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/TanamanCilik.png")));
+                    vHome.getBtnPetak3().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/CilikGandeng.png")));
+                    vHome.getBtnPetak3().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/CilikGandeng.png")));
                     statusKotak[0] = 2;
                     bibit -= 1;
                     try {
@@ -266,8 +276,8 @@ public class c_home {
         public void actionPerformed(ActionEvent e) {
             if (statusKotak[3] == 1) {//kosong
                 if (bibit > 0) {
-                    vHome.getBtnPetak4().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/TanamanCilik.png")));
-                    vHome.getBtnPetak4().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/TanamanCilik.png")));
+                    vHome.getBtnPetak4().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/CilikGandeng.png")));
+                    vHome.getBtnPetak4().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/CilikGandeng.png")));
                     statusKotak[0] = 2;
                     bibit -= 1;
                     try {
@@ -319,8 +329,8 @@ public class c_home {
         public void actionPerformed(ActionEvent e) {
             if (statusKotak[4] == 1) {//kosong
                 if (bibit > 0) {
-                    vHome.getBtnPetak5().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/TanamanCilik.png")));
-                    vHome.getBtnPetak5().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/TanamanCilik.png")));
+                    vHome.getBtnPetak5().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/CilikGandeng.png")));
+                    vHome.getBtnPetak5().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/CilikGandeng.png")));
                     statusKotak[0] = 2;
                     bibit -= 1;
                     try {
@@ -372,8 +382,8 @@ public class c_home {
         public void actionPerformed(ActionEvent e) {
             if (statusKotak[5] == 1) {//kosong
                 if (bibit > 0) {
-                    vHome.getBtnPetak6().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/TanamanCilik.png")));
-                    vHome.getBtnPetak6().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/TanamanCilik.png")));
+                    vHome.getBtnPetak6().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/CilikGandeng.png")));
+                    vHome.getBtnPetak6().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/CilikGandeng.png")));
                     statusKotak[0] = 2;
                     bibit -= 1;
                     try {

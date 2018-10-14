@@ -86,8 +86,14 @@ public class MainMenu extends javax.swing.JFrame {
         usernameFrame.setPreferredSize(new java.awt.Dimension(800, 630));
         usernameFrame.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        fieldUsername.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         fieldUsername.setBorder(null);
         fieldUsername.setOpaque(false);
+        fieldUsername.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                fieldUsernameKeyTyped(evt);
+            }
+        });
         usernameFrame.getContentPane().add(fieldUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, 220, 40));
 
         btnBatal.setBorderPainted(false);
@@ -125,6 +131,7 @@ public class MainMenu extends javax.swing.JFrame {
 
         tentangB.setBorderPainted(false);
         tentangB.setContentAreaFilled(false);
+        tentangB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         tentangB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tentangBActionPerformed(evt);
@@ -134,6 +141,7 @@ public class MainMenu extends javax.swing.JFrame {
 
         keluarB.setBorderPainted(false);
         keluarB.setContentAreaFilled(false);
+        keluarB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         keluarB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 keluarBActionPerformed(evt);
@@ -148,6 +156,7 @@ public class MainMenu extends javax.swing.JFrame {
 
         vol.setBorderPainted(false);
         vol.setContentAreaFilled(false);
+        vol.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         vol.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 volActionPerformed(evt);
@@ -180,6 +189,13 @@ dispose();        // TODO add your handling code here:
     private void volActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_volActionPerformed
+
+    private void fieldUsernameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldUsernameKeyTyped
+if(fieldUsername.getText().length()>5){
+    JOptionPane.showMessageDialog(null,"username tidak boleh melebihi 5 huruf !");
+    evt.consume();
+}
+    }//GEN-LAST:event_fieldUsernameKeyTyped
 
     /**
      * @param args the command line arguments

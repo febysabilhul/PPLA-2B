@@ -44,8 +44,10 @@ public class cMenu {
         viewMenu.getBtnAbout().addActionListener(new aboutAction());
         viewMenu.getBtnOk().addActionListener(new OkAction());
         viewtentang.getBtnKembali().addActionListener(new kembaliAction());
+        viewMenu.getBtnBatal().addActionListener(new batalAction());
         viewMenu.klikvol(new acttombolvolume());
         viewMenu.setVisible(true);
+        
 
     }
 
@@ -90,6 +92,15 @@ public class cMenu {
         @Override
         public void actionPerformed(ActionEvent e) {
             viewtentang.setVisible(false);
+            viewMenu.setVisible(true);
+        }
+
+    }
+    private class batalAction implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+      viewMenu.getUsernameFrame().setVisible(false);
             viewMenu.setVisible(true);
         }
 

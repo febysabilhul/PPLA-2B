@@ -31,7 +31,7 @@
     <Component class="javax.swing.JLabel" name="lblbibit">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Bk" size="11" style="0"/>
+          <Font name="Roboto Bk" size="16" style="0"/>
         </Property>
       </Properties>
       <Constraints>
@@ -145,7 +145,7 @@
     <Component class="javax.swing.JLabel" name="lblpupuk">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Bk" size="11" style="0"/>
+          <Font name="Roboto Bk" size="16" style="0"/>
         </Property>
       </Properties>
       <Constraints>
@@ -157,7 +157,7 @@
     <Component class="javax.swing.JLabel" name="lblobat">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Bk" size="11" style="0"/>
+          <Font name="Roboto Bk" size="16" style="0"/>
         </Property>
       </Properties>
       <Constraints>
@@ -190,6 +190,12 @@
         </Property>
         <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Hand Cursor"/>
+        </Property>
+        <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/gambar/lahan/Highlight Cangkul.png"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCangkulActionPerformed"/>
@@ -299,12 +305,12 @@
     <Component class="javax.swing.JLabel" name="lblkoin">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Bk" size="11" style="0"/>
+          <Font name="Roboto Bk" size="16" style="0"/>
         </Property>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="730" y="60" width="30" height="30"/>
+          <AbsoluteConstraints x="700" y="60" width="80" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -325,7 +331,7 @@
     <Component class="javax.swing.JLabel" name="LblUsername">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Bk" size="11" style="0"/>
+          <Font name="Roboto Bk" size="16" style="0"/>
         </Property>
       </Properties>
       <Constraints>

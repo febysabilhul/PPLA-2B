@@ -25,8 +25,9 @@ public class c_toko {
     private home vHome;
     private m_aset mAset;
     private String username;
-    private int hargaBibit = 280;
-    private int hargapupuk = 60;
+    private int hargaBibit = 100;
+    private int hargapupuk = 90;
+    private int hargaobat = 70;
 
     public c_toko(home vHome, String username) throws SQLException {
         vToko = new toko();
@@ -37,7 +38,8 @@ public class c_toko {
 //        vToko.getBtnKembali().addActionListener(new kembaliAction());
         vToko.getBtnItem1().addActionListener(new bibitAction());
         vToko.getBtnItem2().addActionListener(new pupukAction());
-
+        vToko.getBtnItem3().addActionListener(new pupukAction());
+        vToko.getBtnKembali().addActionListener(new kembaliAction());
     }
 
     private class bibitAction implements ActionListener {
@@ -65,8 +67,26 @@ public class c_toko {
                 try {
                     mAset.updateKoin(mAset.getKoin(mAset.cekIdPlayer(username)) - hargapupuk, mAset.cekIdPlayer(username));
                     mAset.updatePupuk(mAset.getPupuk(mAset.cekIdPlayer(username)) + 1, mAset.cekIdPlayer(username));
-                    vToko.getLblBibit().setText(mAset.getKoin(mAset.cekIdPlayer(username)) + "");
+                    vToko.getLblKoin().setText(mAset.getKoin(mAset.cekIdPlayer(username)) + "");
                     vToko.getLblPupuk().setText(mAset.getPupuk(mAset.cekIdPlayer(username)) + "");
+                } catch (SQLException ex) {
+                    Logger.getLogger(c_toko.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+        }
+    }
+
+    private class obatAction implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (JOptionPane.showConfirmDialog(vHome, "Yakin beli..?", null, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                try {
+                    mAset.updateKoin(mAset.getKoin(mAset.cekIdPlayer(username)) - hargapupuk, mAset.cekIdPlayer(username));
+                    mAset.updateObat(mAset.getObat(mAset.cekIdPlayer(username)) + 1, mAset.cekIdPlayer(username));
+                    vToko.getLblKoin().setText(mAset.getKoin(mAset.cekIdPlayer(username)) + "");
+                    vToko.getLblObat().setText(mAset.getObat(mAset.cekIdPlayer(username)) + "");
                 } catch (SQLException ex) {
                     Logger.getLogger(c_toko.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -82,12 +102,27 @@ public class c_toko {
             vToko.setVisible(false);
             vHome.setVisible(true);
             vHome.toFront();
+           
+             try {
+                vHome.getLblBibit().setText(mAset.getBibit(mAset.cekIdPlayer(username)) + "");
+                vHome.getLblKoin().setText(mAset.getKoin(mAset.cekIdPlayer(username))+"");
+                vHome.getLblObat().setText(mAset.getObat(mAset.cekIdPlayer(username)) + "");
+                vHome.getLblPupuk().setText(mAset.getPupuk(mAset.cekIdPlayer(username)) + "");
+            } catch (SQLException ex) {
+                Logger.getLogger(c_home.class.getName()).log(Level.SEVERE, null, ex);
+            }
             try {
+                vHome.getLblKoin().setText(mAset.getKoin(mAset.cekIdPlayer(username))+"");
+                vHome.getLblObat().setText(mAset.getObat(mAset.cekIdPlayer(username)) + "");
                 vHome.getLblPupuk().setText(mAset.getPupuk(mAset.cekIdPlayer(username)) + "");
                 vHome.getLblBibit().setText(mAset.getBibit(mAset.cekIdPlayer(username)) + "");
             } catch (SQLException ex) {
                 Logger.getLogger(c_toko.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    }
+
+    public toko getView() {
+        return vToko;
     }
 }

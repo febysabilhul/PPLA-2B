@@ -4,19 +4,20 @@
  * and open the template in the editor.
  */
 package view;
+
 import javax.swing.JButton;
+
 public class Petunjuk extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Petunjuk
-     */
     public Petunjuk() {
         initComponents();
-    }
-        public JButton getBtnKembali() {
-        return btnKembali;
+        this.setLocationRelativeTo(this);
+
     }
 
+    public JButton getBtnKembali() {
+        return btnKembali;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
