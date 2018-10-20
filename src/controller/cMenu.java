@@ -17,7 +17,7 @@ import view.Tentang;
 import view.load;
 import model.m_player;
 import model.m_aset;
-
+import model.m_function;
 /**
  *
  * @author BoniBarBar
@@ -32,6 +32,7 @@ public class cMenu {
     private m_aset mAset;
     AudioInputStream audio;
     Clip clip;
+    private m_function mFunction;
 
     public cMenu() throws SQLException, InterruptedException {
         viewMenu = new MainMenu();
