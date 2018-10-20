@@ -429,4 +429,62 @@ public class c_home {
         }
     }
 
+     private class time extends Thread {
+
+        @Override
+        public void run() {
+            while (true) {
+                try {
+                    Thread.sleep(1000);
+                    bibit = mAset.getBibit(mAset.cekIdPlayer(username));
+                    koin = mAset.getKoin(mAset.cekIdPlayer(username));
+                    for (int i = 0; i < statusKotak.length; i++) {
+                        if (statusKotak[i] == 2) {
+                            statusTime1[i] += 1;
+                            if (statusTime1[i] == 5) {
+                               air[i].setVisible(true);
+                                air[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/isisawah/notif air.png")));
+                                vHome.getBtnAir().setEnabled(true);
+                            }
+                        }
+                        if (statusSiram[i]) {
+
+                            statusTime2[i] += 1;
+                            if (statusTime2[i] == 2) {
+                                air[i].setVisible(false);
+                            } else if (statusTime2[i] == 20) {
+                                statusKotak[i] = 3;
+                                petak[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/isisawah/tanahBerjagung1.png")));
+                                petak[i].setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/isisawah/tanahBerjagung1hover.png")));
+                            }
+                        }
+                        if (statusKotak[i] == 3) {
+                            statusTime3[i] += 1;
+                            if (statusTime3[i] == 40) {
+                                statusKotak[i] = 4;
+                                petak[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/isisawah/tanahBerjagung2.png")));
+                                petak[i].setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/isisawah/tanahBerjagung2hover.png")));
+                            }
+                        }
+                    }
+//                    System.out.println("");
+//                    System.out.println("air =" + statusSiram[0]);
+//                    System.out.println("air2 =" + statusSiram[1]);
+//                    System.out.println("");
+//                    System.out.println("jagung= " + jagung);
+//                    System.out.println("");
+//                    System.out.println("kotak 1= " + statusKotak[0]);
+//                    System.out.println("kotak 2= " + statusKotak[1]);
+//                    System.out.println("kotak 3= " + statusKotak[2]);
+//                    System.out.println("kotak 4= " + statusKotak[3]);
+//                    System.out.println("kotak 5= " + statusKotak[4]);
+//                    System.out.println("kotak 6= " + statusKotak[5]);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(c_toko.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (SQLException ex) {
+                    Logger.getLogger(c_home.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+    }
 }
