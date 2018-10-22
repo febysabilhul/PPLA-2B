@@ -81,21 +81,17 @@ JLabel rum;
         return lblkoin;
     }
 
-    public JLabel getLblAir6() {
-        return air6;
-    }
-
     public JLabel getLblAir5() {
         return air5;
     }
 
     public JLabel getLblAir4() {
         return air4;
- 
     }
 
     public JLabel getLblAir3() {
         return air3;
+ 
     }
 
     public JLabel getLblAir2() {
@@ -104,6 +100,10 @@ JLabel rum;
 
     public JLabel getLblAir1() {
         return air1;
+    }
+
+    public JLabel getLblAir() {
+        return air;
     }
     
     
@@ -121,24 +121,24 @@ JLabel rum;
     private void initComponents() {
 
         lblbibit = new javax.swing.JLabel();
-        petak5 = new javax.swing.JButton();
         petak6 = new javax.swing.JButton();
-        petak3 = new javax.swing.JButton();
+        petak5 = new javax.swing.JButton();
         petak4 = new javax.swing.JButton();
-        petak1 = new javax.swing.JButton();
+        petak3 = new javax.swing.JButton();
         petak2 = new javax.swing.JButton();
+        petak1 = new javax.swing.JButton();
         lblpupuk = new javax.swing.JLabel();
         lblobat = new javax.swing.JLabel();
         btnGunting = new javax.swing.JButton();
         btnCangkul = new javax.swing.JButton();
         btnAir = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        air = new javax.swing.JLabel();
         air1 = new javax.swing.JLabel();
         air2 = new javax.swing.JLabel();
         air3 = new javax.swing.JLabel();
         air4 = new javax.swing.JLabel();
         air5 = new javax.swing.JLabel();
-        air6 = new javax.swing.JLabel();
         lblkoin = new javax.swing.JLabel();
         btnKembali = new javax.swing.JButton();
         LblUsername = new javax.swing.JLabel();
@@ -153,16 +153,6 @@ JLabel rum;
         lblbibit.setFont(new java.awt.Font("Roboto Bk", 0, 16)); // NOI18N
         getContentPane().add(lblbibit, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 40, 20));
 
-        petak5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png"))); // NOI18N
-        petak5.setBorderPainted(false);
-        petak5.setContentAreaFilled(false);
-        petak5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                petak5ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(petak5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, -1, -1));
-
         petak6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png"))); // NOI18N
         petak6.setBorderPainted(false);
         petak6.setContentAreaFilled(false);
@@ -173,15 +163,15 @@ JLabel rum;
         });
         getContentPane().add(petak6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 510, -1, -1));
 
-        petak3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png"))); // NOI18N
-        petak3.setBorderPainted(false);
-        petak3.setContentAreaFilled(false);
-        petak3.addActionListener(new java.awt.event.ActionListener() {
+        petak5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png"))); // NOI18N
+        petak5.setBorderPainted(false);
+        petak5.setContentAreaFilled(false);
+        petak5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                petak3ActionPerformed(evt);
+                petak5ActionPerformed(evt);
             }
         });
-        getContentPane().add(petak3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 500, -1, -1));
+        getContentPane().add(petak5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, -1, -1));
 
         petak4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png"))); // NOI18N
         petak4.setBorderPainted(false);
@@ -193,15 +183,15 @@ JLabel rum;
         });
         getContentPane().add(petak4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 360, -1, -1));
 
-        petak1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png"))); // NOI18N
-        petak1.setBorderPainted(false);
-        petak1.setContentAreaFilled(false);
-        petak1.addActionListener(new java.awt.event.ActionListener() {
+        petak3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png"))); // NOI18N
+        petak3.setBorderPainted(false);
+        petak3.setContentAreaFilled(false);
+        petak3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                petak1ActionPerformed(evt);
+                petak3ActionPerformed(evt);
             }
         });
-        getContentPane().add(petak1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 360, -1, -1));
+        getContentPane().add(petak3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 500, -1, -1));
 
         petak2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png"))); // NOI18N
         petak2.setBorderPainted(false);
@@ -212,6 +202,16 @@ JLabel rum;
             }
         });
         getContentPane().add(petak2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 480, -1, -1));
+
+        petak1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png"))); // NOI18N
+        petak1.setBorderPainted(false);
+        petak1.setContentAreaFilled(false);
+        petak1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                petak1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(petak1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 360, -1, -1));
 
         lblpupuk.setFont(new java.awt.Font("Roboto Bk", 0, 16)); // NOI18N
         getContentPane().add(lblpupuk, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 20, 40, 20));
@@ -252,26 +252,26 @@ JLabel rum;
         getContentPane().add(btnAir, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 390, -1, -1));
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, -1));
 
+        air.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Ngelak.png"))); // NOI18N
+        getContentPane().add(air, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 310, -1, -1));
+
         air1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Ngelak.png"))); // NOI18N
-        getContentPane().add(air1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 310, -1, -1));
+        getContentPane().add(air1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 430, -1, -1));
 
         air2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Ngelak.png"))); // NOI18N
-        getContentPane().add(air2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 430, -1, -1));
+        getContentPane().add(air2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 310, -1, -1));
 
         air3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Ngelak.png"))); // NOI18N
-        getContentPane().add(air3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 310, -1, -1));
+        getContentPane().add(air3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 450, -1, -1));
 
         air4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Ngelak.png"))); // NOI18N
-        getContentPane().add(air4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 450, -1, -1));
+        getContentPane().add(air4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, -1, -1));
 
         air5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Ngelak.png"))); // NOI18N
-        getContentPane().add(air5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, -1, -1));
-
-        air6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Ngelak.png"))); // NOI18N
-        getContentPane().add(air6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 460, -1, -1));
+        getContentPane().add(air5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 460, -1, -1));
 
         lblkoin.setFont(new java.awt.Font("Roboto Bk", 0, 16)); // NOI18N
-        getContentPane().add(lblkoin, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 60, 80, 30));
+        getContentPane().add(lblkoin, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 60, 60, 30));
 
         btnKembali.setBorderPainted(false);
         btnKembali.setContentAreaFilled(false);
@@ -385,12 +385,12 @@ JLabel rum;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btntoko;
     private javax.swing.JLabel LblUsername;
+    private javax.swing.JLabel air;
     private javax.swing.JLabel air1;
     private javax.swing.JLabel air2;
     private javax.swing.JLabel air3;
     private javax.swing.JLabel air4;
     private javax.swing.JLabel air5;
-    private javax.swing.JLabel air6;
     private javax.swing.JButton btnAir;
     private javax.swing.JButton btnCangkul;
     private javax.swing.JButton btnGunting;
