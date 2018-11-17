@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import model.m_aset;
 import view.home;
@@ -28,6 +29,9 @@ public class c_toko {
     private int hargaBibit = 100;
     private int hargapupuk = 90;
     private int hargaobat = 70;
+private JButton btnItem1;
+private JButton btnItem2;
+private JButton btnItem3;
 
     public c_toko(home vHome, String username) throws SQLException {
         vToko = new toko();
@@ -52,6 +56,7 @@ public class c_toko {
                     mAset.updateBibit(mAset.getBibit(mAset.cekIdPlayer(username)) + 1, mAset.cekIdPlayer(username));
                     vToko.getLblKoin().setText(mAset.getKoin(mAset.cekIdPlayer(username)) + "");
                     vToko.getLblBibit().setText(mAset.getBibit(mAset.cekIdPlayer(username)) + "");
+                     btnItem1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Bibit Highlight.png")));
                 } catch (SQLException ex) {
                     Logger.getLogger(c_toko.class.getName()).log(Level.SEVERE, null, ex);
                 }

@@ -74,7 +74,7 @@ private ResultSet rs;
 
     public boolean insertAset() throws SQLException {
         int id = cekId();
-        String query = "INSERT INTO `aset` VALUES (" + id + "," + id + ",1000,2,2,2)";
+        String query = "INSERT INTO `aset` VALUES (" + id + "," + id + ",1000,2,4,2)";
         return getStatusQuery(query);
     }
 

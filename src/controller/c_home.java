@@ -24,9 +24,14 @@ public class c_home {
     private m_aset mAset;
     private toko vtoko;
     private JButton petak[] = new JButton[6];
+
+    private JLabel pupuklbl[] = new JLabel[6];
+
+    private JLabel obatlbl[] = new JLabel[6];
+
     private JLabel air[] = new JLabel[6];
     private JLabel gulma[] = new JLabel[6];
-    private JLabel tunas[]=new JLabel[6];
+    private JLabel tunas[] = new JLabel[6];
     private int statusKotak[] = {1, 1, 1, 1, 1, 1};
     private int statusTime1[] = {0, 0, 0, 0, 0, 0};
     private int statusTime2[] = {0, 0, 0, 0, 0, 0};
@@ -51,6 +56,9 @@ public class c_home {
         vHome.getBtntoko().addActionListener(new tokoAction());
         vHome.getBtnCangkul().addActionListener(new CangkulAction());
         vHome.getBtnGunting().addActionListener(new GuntingAction());
+        vHome.getBtnTangan().addActionListener(new TanganAction());
+        vHome.getBtnTangan2().addActionListener(new Tangan2Action());
+
         vHome.getLblusername().setText(username);
         vHome.setVisible(true);
 
@@ -72,13 +80,28 @@ public class c_home {
         gulma[3] = vHome.getLblGulma3();
         gulma[4] = vHome.getLblGulma4();
         gulma[5] = vHome.getLblGulma5();
-        
+
         tunas[0] = vHome.getLblTunas();
         tunas[1] = vHome.getLblTunas1();
         tunas[2] = vHome.getLblTunas2();
         tunas[3] = vHome.getLblTunas3();
         tunas[4] = vHome.getLblTunas4();
         tunas[5] = vHome.getLblTunas5();
+
+        obatlbl[0] = vHome.getLblObatlbl1();
+        obatlbl[1] = vHome.getLblObatlbl2();
+        obatlbl[2] = vHome.getLblObatlbl3();
+        obatlbl[3] = vHome.getLblObatlbl4();
+        obatlbl[4] = vHome.getLblObatlbl5();
+        obatlbl[5] = vHome.getLblObatlbl6();
+
+        pupuklbl[0] = vHome.getLblPupuklbl1();
+        pupuklbl[1] = vHome.getLblPupuklbl2();
+        pupuklbl[2] = vHome.getLblPupuklbl3();
+        pupuklbl[3] = vHome.getLblPupuklbl4();
+        pupuklbl[4] = vHome.getLblPupuklbl5();
+        pupuklbl[5] = vHome.getLblPupuklbl6();
+
         for (int i = 0; i < air.length; i++) {
             air[i].setVisible(false);
         }
@@ -86,10 +109,20 @@ public class c_home {
             gulma[i].setVisible(false);
 
         }
-          for (int i = 0; i < gulma.length; i++) {
+        for (int i = 0; i < gulma.length; i++) {
             tunas[i].setVisible(false);
 
         }
+
+        for (int i = 0; i < pupuklbl.length; i++) {
+            pupuklbl[i].setVisible(false);
+
+        }
+        for (int i = 0; i < obatlbl.length; i++) {
+            obatlbl[i].setVisible(false);
+
+        }
+
         bibit = mAset.getBibit(mAset.cekIdPlayer(username));
         pupuk = mAset.getPupuk(mAset.cekIdPlayer(username));
         obat = mAset.getObat(mAset.cekIdPlayer(username));
@@ -106,14 +139,16 @@ public class c_home {
         vHome.getBtnPetak4().addActionListener(new kotak4Action());
         vHome.getBtnPetak5().addActionListener(new kotak5Action());
         vHome.getBtnPetak6().addActionListener(new kotak6Action());
+
         vHome.getBtnAir().setEnabled(false);
         vHome.getBtnCangkul().setEnabled(false);
         vHome.getBtnGunting().setEnabled(false);
+        vHome.getBtnTangan().setEnabled(false);
+        vHome.getBtnTangan2().setEnabled(false);
+
         t = new time();
         t.start();
     }
-
-    
 
     private class tokoAction implements ActionListener {
 
@@ -139,11 +174,76 @@ public class c_home {
             vHome.setVisible(false);
         }
     }
-private class GuntingAction implements ActionListener {
+
+    private class TanganAction implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-           
+
+            for (int i = 0; i < statusKotak.length; i++) {
+                if (statusKotak[i] == 3) {
+
+                    detikSiram1 = true;
+                    statusSiram[i] = true;
+                    pupuklbl[i].setVisible(false);
+                    air[i].setVisible(true);
+
+                    air[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Mupuk.png")));
+
+                }
+
+            }
+            if (pupuk > 0) {
+                pupuk -= 1;
+                try {
+                    mAset.updatePupuk(pupuk, mAset.cekIdPlayer(username));
+                    vHome.getLblPupuk().setText(mAset.getPupuk(mAset.cekIdPlayer(username)) + "");
+                } catch (SQLException ex) {
+                    Logger.getLogger(c_home.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                JOptionPane.showMessageDialog(vHome, "Tidak punya pupuk");
+            }
+        }
+    }
+
+    private class Tangan2Action implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+            for (int i = 0; i < statusKotak.length; i++) {
+                if (statusKotak[i] == 3) {
+
+                    detikSiram1 = true;
+                    statusSiram[i] = true;
+                    obatlbl[i].setVisible(false);
+                    air[i].setVisible(true);
+
+                    air[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Nyemprot.png")));
+
+                }
+
+            }
+            if (obat > 0) {
+                obat -= 1;
+                try {
+                    mAset.updateObat(obat, mAset.cekIdPlayer(username));
+                    vHome.getLblObat().setText(mAset.getObat(mAset.cekIdPlayer(username)) + "");
+                } catch (SQLException ex) {
+                    Logger.getLogger(c_home.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                JOptionPane.showMessageDialog(vHome, "Tidak punya obat");
+            }
+        }
+    }
+
+    private class GuntingAction implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
             for (int i = 0; i < statusKotak.length; i++) {
                 if (statusKotak[i] == 3) {
 
@@ -151,9 +251,9 @@ private class GuntingAction implements ActionListener {
                     statusSiram[i] = true;
                     tunas[i].setVisible(false);
                     air[i].setVisible(true);
-                  
-                 air[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Nggunting.png")));
-                  
+
+                    air[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Nggunting.png")));
+
                     vHome.getBtnCangkul().setEnabled(false);
                 }
 
@@ -161,12 +261,12 @@ private class GuntingAction implements ActionListener {
         }
 
     }
-  
-private class CangkulAction implements ActionListener {
+
+    private class CangkulAction implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-           
+
             for (int i = 0; i < statusKotak.length; i++) {
                 if (statusKotak[i] == 3) {
 
@@ -174,9 +274,9 @@ private class CangkulAction implements ActionListener {
                     statusSiram[i] = true;
                     air[i].setVisible(true);
                     gulma[i].setVisible(false);
-                  
-                 air[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Nyangkul.png")));
-                  
+
+                    air[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Nyangkul.png")));
+
                     vHome.getBtnCangkul().setEnabled(false);
                 }
 
@@ -184,6 +284,7 @@ private class CangkulAction implements ActionListener {
         }
 
     }
+
     private class airAction implements ActionListener {
 
         @Override
@@ -234,8 +335,8 @@ private class CangkulAction implements ActionListener {
                 statusTime2[0] = 0;
                 statusTime3[0] = 0;
             } else if (statusKotak[0] == 4) {//siap panen
-                vHome.getBtnPetak1().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/gundukan.png")));
-                vHome.getBtnPetak1().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/gundukan.png")));
+                vHome.getBtnPetak1().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/GediTok.png")));
+                vHome.getBtnPetak1().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/GediTok.png")));
                 koin += 150;
                 try {
                     mAset.updateKoin(koin, mAset.cekIdPlayer(username));
@@ -287,8 +388,8 @@ private class CangkulAction implements ActionListener {
                 statusTime2[1] = 0;
                 statusTime3[1] = 0;
             } else if (statusKotak[1] == 4) {//siap panen
-                vHome.getBtnPetak2().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/gundukan.png")));
-                vHome.getBtnPetak2().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/gundukan.png")));
+                vHome.getBtnPetak2().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/GediTok.png")));
+                vHome.getBtnPetak2().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/GediTok.png")));
                 koin += 150;
                 try {
                     mAset.updateKoin(koin, mAset.cekIdPlayer(username));
@@ -340,8 +441,8 @@ private class CangkulAction implements ActionListener {
                 statusTime2[2] = 0;
                 statusTime3[2] = 0;
             } else if (statusKotak[2] == 4) {//siap panen
-                vHome.getBtnPetak3().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/gundukan.png")));
-                vHome.getBtnPetak3().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/gundukan.png")));
+                vHome.getBtnPetak3().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/GediTok.png")));
+                vHome.getBtnPetak3().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/GediTok.png")));
                 koin += 150;
                 try {
                     mAset.updateKoin(koin, mAset.cekIdPlayer(username));
@@ -393,8 +494,8 @@ private class CangkulAction implements ActionListener {
                 statusTime2[3] = 0;
                 statusTime3[3] = 0;
             } else if (statusKotak[3] == 4) {//siap panen
-                vHome.getBtnPetak4().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/gundukan.png")));
-                vHome.getBtnPetak4().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/gundukan.png")));
+                vHome.getBtnPetak4().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/GediTok.png")));
+                vHome.getBtnPetak4().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/GediTok.png")));
                 koin += 150;
                 try {
                     mAset.updateKoin(koin, mAset.cekIdPlayer(username));
@@ -446,8 +547,8 @@ private class CangkulAction implements ActionListener {
                 statusTime2[4] = 0;
                 statusTime3[4] = 0;
             } else if (statusKotak[4] == 4) {//siap panen
-                vHome.getBtnPetak5().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/gundukan.png")));
-                vHome.getBtnPetak5().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/gundukan.png")));
+                vHome.getBtnPetak5().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/GediTok.png")));
+                vHome.getBtnPetak5().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/GediTok.png")));
                 koin += 150;
                 try {
                     mAset.updateKoin(koin, mAset.cekIdPlayer(username));
@@ -499,8 +600,8 @@ private class CangkulAction implements ActionListener {
                 statusTime2[5] = 0;
                 statusTime3[5] = 0;
             } else if (statusKotak[5] == 4) {//siap panen
-                vHome.getBtnPetak6().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/gundukan.png")));
-                vHome.getBtnPetak6().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/gundukan.png")));
+                vHome.getBtnPetak6().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/GediTok.png")));
+                vHome.getBtnPetak6().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/GediTok.png")));
                 koin += 150;
                 try {
                     mAset.updateKoin(koin, mAset.cekIdPlayer(username));
@@ -528,59 +629,59 @@ private class CangkulAction implements ActionListener {
                     koin = mAset.getKoin(mAset.cekIdPlayer(username));
                     for (int i = 0; i < statusKotak.length; i++) {
                         if (statusKotak[i] == 2) {
-                            
+
                             statusTime1[i] += 1;
 
-                            if (statusTime1[i] == 5) {
+                            if (statusTime1[i] == 10) {
                                 air[i].setVisible(true);
                                 air[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/ngelak.png")));
                                 vHome.getBtnAir().setEnabled(true);
+
                                 statusair += 1;
                             }
-                            if(statusTime1[i] == 7) {
-                                air[i].setVisible(false);
-                            }
-                            else if(statusTime1[i] == 10) {
-                                air[i].setVisible(true);
-                                air[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/ngelak.png")));
-                                vHome.getBtnAir().setEnabled(true);
-                                statusair += 1;
-                            }
-                            if(statusTime1[i] == 12) {
-                                air[i].setVisible(false);
-                            }
-                            
                             if (statusTime1[i] == 15) {
+                                air[i].setVisible(false);
+                            } else if (statusTime1[i] == 20) {
                                 air[i].setVisible(true);
                                 air[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/ngelak.png")));
                                 vHome.getBtnAir().setEnabled(true);
                                 statusair += 1;
                             }
-                            
-                            if(statusTime1[i] == 17) {
-                                air[i].setVisible(false);
-                            }
-                            
-                            if (statusTime1[i] == 20) {
-                                air[i].setVisible(true);
-                                air[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/ngelak.png")));
-                                vHome.getBtnAir().setEnabled(true);
-                                statusair += 1;
-                            }
-                            
-                            if(statusTime1[i] == 22) {
-                                air[i].setVisible(false);
-                            }
-                            
                             if (statusTime1[i] == 25) {
+                                air[i].setVisible(false);
+                            }
+
+                            if (statusTime1[i] == 30) {
                                 air[i].setVisible(true);
                                 air[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/ngelak.png")));
                                 vHome.getBtnAir().setEnabled(true);
                                 statusair += 1;
-                                
                             }
-                            
-                            if(statusTime1[i] == 27) {
+
+                            if (statusTime1[i] == 35) {
+                                air[i].setVisible(false);
+                            }
+
+                            if (statusTime1[i] == 40) {
+                                air[i].setVisible(true);
+                                air[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/ngelak.png")));
+                                vHome.getBtnAir().setEnabled(true);
+                                statusair += 1;
+                            }
+
+                            if (statusTime1[i] == 45) {
+                                air[i].setVisible(false);
+                            }
+
+                            if (statusTime1[i] == 50) {
+                                air[i].setVisible(true);
+                                air[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/ngelak.png")));
+                                vHome.getBtnAir().setEnabled(true);
+                                statusair += 1;
+
+                            }
+
+                            if (statusTime1[i] == 56) {
                                 air[i].setVisible(false);
                             }
 
@@ -588,46 +689,62 @@ private class CangkulAction implements ActionListener {
 
                         if (statusSiram[i]) {
                             statusTime2[i] += 1;
-                            if (statusTime2[i] == 25) {
+                            if (statusTime2[i] == 60) {
                                 statusTime2[i] += 1;
                                 statusKotak[i] = 3;
                                 air[i].setVisible(false);
                                 petak[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/SetengahGediBaru.png")));
                                 petak[i].setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/SetengahGediBaru.png")));
                             }
-                            
-                            if (statusTime2[i] == 40) {
+
+                            if (statusTime2[i] == 70) {
                                 gulma[i].setVisible(true);
                                 vHome.getBtnCangkul().setEnabled(true);
                                 gulma[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gulma.png")));
                             }
-                            
-                      
-                        
-                            if(statusTime2[i] == 44) {
+
+                            if (statusTime2[i] == 75) {
                                 air[i].setVisible(false);
                             }
 
-                                  
-                            if (statusTime2[i] == 50) {
+                            if (statusTime2[i] == 80) {
                                 gulma[i].setVisible(false);
                                 air[i].setVisible(false);
                                 tunas[i].setVisible(true);
                                 vHome.getBtnGunting().setEnabled(true);
                                 tunas[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Tunas.png")));
                             }
-                            
-                      
-                        
-                            if(statusTime2[i] == 54) {
+
+                            if (statusTime2[i] == 85) {
                                 air[i].setVisible(false);
                             }
-                            
+
+                            if (statusTime2[i] == 90) {
+                                pupuklbl[i].setVisible(true);
+                                vHome.getBtnTangan().setEnabled(true);
+                                pupuklbl[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Pupuk Notif.png")));
+                            }
+
+                            if (statusTime2[i] == 95) {
+                                air[i].setVisible(false);
+                            }
+
+                            if (statusTime2[i] == 100) {
+                                obatlbl[i].setVisible(true);
+                                vHome.getBtnTangan2().setEnabled(true);
+                                obatlbl[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Uler.png")));
+                            }
+
+                            if (statusTime2[i] == 104) {
+                                air[i].setVisible(false);
+                            }
+
                         }
+
                         if (statusKotak[i] == 3) {
                             statusTime3[i] += 1;
-                            
-                            if (statusTime3[i] == 100) {
+
+                            if (statusTime3[i] == 115) {
                                 gulma[i].setVisible(false);
                                 air[i].setVisible(false);
                                 statusKotak[i] = 4;
@@ -636,18 +753,7 @@ private class CangkulAction implements ActionListener {
                             }
                         }
                     }
-//                    System.out.println("");
-//                    System.out.println("air =" + statusSiram[0]);
-//                    System.out.println("air2 =" + statusSiram[1]);
-//                    System.out.println("");
-//                    System.out.println("jagung= " + jagung);
-//                    System.out.println("");
-//                    System.out.println("kotak 1= " + statusKotak[0]);
-//                    System.out.println("kotak 2= " + statusKotak[1]);
-//                    System.out.println("kotak 3= " + statusKotak[2]);
-//                    System.out.println("kotak 4= " + statusKotak[3]);
-//                    System.out.println("kotak 5= " + statusKotak[4]);
-//                    System.out.println("kotak 6= " + statusKotak[5]);
+
                 } catch (InterruptedException ex) {
                     Logger.getLogger(c_toko.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (SQLException ex) {

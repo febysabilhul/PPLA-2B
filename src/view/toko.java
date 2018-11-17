@@ -71,33 +71,33 @@ public class toko extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(800, 630));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/toko/Bibit Toko.png"))); // NOI18N
+        btnItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Sprint 2/Pisah/Bibit.png"))); // NOI18N
         btnItem1.setBorderPainted(false);
         btnItem1.setContentAreaFilled(false);
-        btnItem1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/toko/Bibit Toko Highlight.png"))); // NOI18N
+        btnItem1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Bibit Highlight.png"))); // NOI18N
         btnItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnItem1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnItem1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 110, 140));
+        getContentPane().add(btnItem1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 110, 160));
 
-        btnItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/toko/Pupuk Toko.png"))); // NOI18N
+        btnItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Sprint 2/Pisah/Pupuk.png"))); // NOI18N
         btnItem2.setBorderPainted(false);
         btnItem2.setContentAreaFilled(false);
-        btnItem2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/toko/Pupuk Toko Highlight.png"))); // NOI18N
+        btnItem2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Sprint 2/Pisah/Pupuk Highlight.png"))); // NOI18N
         btnItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnItem2ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnItem2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, 80, 110));
+        getContentPane().add(btnItem2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, 110, 170));
 
-        btnItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/toko/Pestisida Toko.png"))); // NOI18N
+        btnItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Sprint 2/Pisah/Pestisida.png"))); // NOI18N
         btnItem3.setBorderPainted(false);
         btnItem3.setContentAreaFilled(false);
-        btnItem3.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/toko/Pestisida Toko Highlight.png"))); // NOI18N
-        getContentPane().add(btnItem3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 230, 90, 110));
+        btnItem3.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Sprint 2/Pisah/Pesisida Highlight.png"))); // NOI18N
+        getContentPane().add(btnItem3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 210, 130, 170));
 
         btnKembali.setBorderPainted(false);
         btnKembali.setContentAreaFilled(false);

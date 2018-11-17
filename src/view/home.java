@@ -22,11 +22,17 @@ JLabel rum;
  initComponents();
         this.setLocationRelativeTo(this);
     }
-
-    public JButton getBtnAir() {
+public JButton getBtnAir() {
         return btnAir;
     }
-      public JButton getBtntoko() {
+    public JButton getBtnTangan() {
+        return tangan;
+    }
+    public JButton getBtnTangan2() {
+        return tangan2;
+    }
+
+    public JButton getBtntoko() {
         return Btntoko;
     }
     public JButton getBtnCangkul() {
@@ -130,6 +136,55 @@ JLabel rum;
         return tunas;
     }
     
+
+    public JLabel getLblPupuklbl1() {
+        return pupuklbl1;
+    }
+    public JLabel getLblPupuklbl2() {
+        return pupuklbl2;
+    }
+    public JLabel getLblPupuklbl3() {
+        return pupuklbl3;
+    }
+    public JLabel getLblPupuklbl4() {
+        return pupuklbl4;
+    }
+    public JLabel getLblPupuklbl5() {
+        return pupuklbl5;
+    }
+    public JLabel getLblPupuklbl6() {
+        return pupuklbl6;
+    }
+    
+    
+    public JLabel getLblObatlbl1() {
+        return obatlbl1;
+    }
+    
+    
+    public JLabel getLblObatlbl2() {
+        return obatlbl2;
+    }
+    
+    
+    public JLabel getLblObatlbl3() {
+        return obatlbl3;
+    }
+    
+    public JLabel getLblObatlbl4() {
+        return obatlbl4;
+    }
+    
+    
+    public JLabel getLblObatlbl6() {
+        return obatlbl6;
+    }
+    
+    public JLabel getLblObatlbl5() {
+        return obatlbl5;
+    }
+    
+    
     public JLabel getLblGulma5() {
         return gulma5;
     }
@@ -168,6 +223,18 @@ JLabel rum;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        obatlbl1 = new javax.swing.JLabel();
+        obatlbl2 = new javax.swing.JLabel();
+        obatlbl3 = new javax.swing.JLabel();
+        obatlbl4 = new javax.swing.JLabel();
+        obatlbl5 = new javax.swing.JLabel();
+        obatlbl6 = new javax.swing.JLabel();
+        pupuklbl1 = new javax.swing.JLabel();
+        pupuklbl2 = new javax.swing.JLabel();
+        pupuklbl3 = new javax.swing.JLabel();
+        pupuklbl4 = new javax.swing.JLabel();
+        pupuklbl5 = new javax.swing.JLabel();
+        pupuklbl6 = new javax.swing.JLabel();
         tunas = new javax.swing.JLabel();
         tunas2 = new javax.swing.JLabel();
         tunas3 = new javax.swing.JLabel();
@@ -203,11 +270,49 @@ JLabel rum;
         btnKembali = new javax.swing.JButton();
         LblUsername = new javax.swing.JLabel();
         Btntoko = new javax.swing.JButton();
+        tangan = new javax.swing.JButton();
+        tangan2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(800, 630));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        obatlbl1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Uler.png"))); // NOI18N
+        getContentPane().add(obatlbl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, -1, -1));
+
+        obatlbl2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Uler.png"))); // NOI18N
+        getContentPane().add(obatlbl2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, -1, -1));
+
+        obatlbl3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Uler.png"))); // NOI18N
+        getContentPane().add(obatlbl3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 200, -1, -1));
+
+        obatlbl4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Uler.png"))); // NOI18N
+        getContentPane().add(obatlbl4, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 390, -1, -1));
+
+        obatlbl5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Uler.png"))); // NOI18N
+        getContentPane().add(obatlbl5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 400, -1, -1));
+
+        obatlbl6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Uler.png"))); // NOI18N
+        getContentPane().add(obatlbl6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, -1, -1));
+
+        pupuklbl1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Sprint 3/Pisah/Pupuk Notif.png"))); // NOI18N
+        getContentPane().add(pupuklbl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 80, 60));
+
+        pupuklbl2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Sprint 3/Pisah/Pupuk Notif.png"))); // NOI18N
+        getContentPane().add(pupuklbl2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, -1, -1));
+
+        pupuklbl3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Sprint 3/Pisah/Pupuk Notif.png"))); // NOI18N
+        getContentPane().add(pupuklbl3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 260, -1, -1));
+
+        pupuklbl4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Sprint 3/Pisah/Pupuk Notif.png"))); // NOI18N
+        getContentPane().add(pupuklbl4, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 440, -1, -1));
+
+        pupuklbl5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Sprint 3/Pisah/Pupuk Notif.png"))); // NOI18N
+        getContentPane().add(pupuklbl5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 440, -1, -1));
+
+        pupuklbl6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Sprint 3/Pisah/Pupuk Notif.png"))); // NOI18N
+        getContentPane().add(pupuklbl6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, -1, -1));
 
         tunas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Tunas.png"))); // NOI18N
         getContentPane().add(tunas, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, -1, -1));
@@ -334,7 +439,7 @@ JLabel rum;
                 btnCangkulActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCangkul, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 450, -1, -1));
+        getContentPane().add(btnCangkul, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 470, -1, -1));
 
         btnAir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/inventory/Siram.png"))); // NOI18N
         btnAir.setBorderPainted(false);
@@ -344,7 +449,7 @@ JLabel rum;
                 btnAirActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAir, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 390, -1, -1));
+        getContentPane().add(btnAir, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 410, -1, -1));
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, -1));
 
         air.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Ngelak.png"))); // NOI18N
@@ -388,6 +493,16 @@ JLabel rum;
             }
         });
         getContentPane().add(Btntoko, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 50, 50));
+
+        tangan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Sprint 2/Pisah/tangan.png"))); // NOI18N
+        tangan.setBorderPainted(false);
+        tangan.setContentAreaFilled(false);
+        getContentPane().add(tangan, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 290, 60, 60));
+
+        tangan2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Sprint 2/Pisah/tangan.png"))); // NOI18N
+        tangan2.setBorderPainted(false);
+        tangan2.setContentAreaFilled(false);
+        getContentPane().add(tangan2, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 350, 60, 60));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Lahan Bersih.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 970, 660));
@@ -499,12 +614,26 @@ JLabel rum;
     private javax.swing.JLabel lblkoin;
     private javax.swing.JLabel lblobat;
     private javax.swing.JLabel lblpupuk;
+    private javax.swing.JLabel obatlbl1;
+    private javax.swing.JLabel obatlbl2;
+    private javax.swing.JLabel obatlbl3;
+    private javax.swing.JLabel obatlbl4;
+    private javax.swing.JLabel obatlbl5;
+    private javax.swing.JLabel obatlbl6;
     private javax.swing.JButton petak1;
     private javax.swing.JButton petak2;
     private javax.swing.JButton petak3;
     private javax.swing.JButton petak4;
     private javax.swing.JButton petak5;
     private javax.swing.JButton petak6;
+    private javax.swing.JLabel pupuklbl1;
+    private javax.swing.JLabel pupuklbl2;
+    private javax.swing.JLabel pupuklbl3;
+    private javax.swing.JLabel pupuklbl4;
+    private javax.swing.JLabel pupuklbl5;
+    private javax.swing.JLabel pupuklbl6;
+    private javax.swing.JButton tangan;
+    private javax.swing.JButton tangan2;
     private javax.swing.JLabel tunas;
     private javax.swing.JLabel tunas1;
     private javax.swing.JLabel tunas2;

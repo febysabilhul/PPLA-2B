@@ -31,12 +31,12 @@
     <Component class="javax.swing.JButton" name="btnItem1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/gambar/toko/Bibit Toko.png"/>
+          <Image iconType="3" name="/gambar/Sprint 2/Pisah/Bibit.png"/>
         </Property>
         <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
         <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/gambar/toko/Bibit Toko Highlight.png"/>
+          <Image iconType="3" name="/gambar/lahan/Bibit Highlight.png"/>
         </Property>
       </Properties>
       <Events>
@@ -44,19 +44,19 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="210" y="220" width="110" height="140"/>
+          <AbsoluteConstraints x="210" y="210" width="110" height="160"/>
         </Constraint>
       </Constraints>
     </Component>
     <Component class="javax.swing.JButton" name="btnItem2">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/gambar/toko/Pupuk Toko.png"/>
+          <Image iconType="3" name="/gambar/Sprint 2/Pisah/Pupuk.png"/>
         </Property>
         <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
         <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/gambar/toko/Pupuk Toko Highlight.png"/>
+          <Image iconType="3" name="/gambar/Sprint 2/Pisah/Pupuk Highlight.png"/>
         </Property>
       </Properties>
       <Events>
@@ -64,24 +64,24 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="360" y="230" width="80" height="110"/>
+          <AbsoluteConstraints x="360" y="220" width="110" height="170"/>
         </Constraint>
       </Constraints>
     </Component>
     <Component class="javax.swing.JButton" name="btnItem3">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/gambar/toko/Pestisida Toko.png"/>
+          <Image iconType="3" name="/gambar/Sprint 2/Pisah/Pestisida.png"/>
         </Property>
         <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
         <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/gambar/toko/Pestisida Toko Highlight.png"/>
+          <Image iconType="3" name="/gambar/Sprint 2/Pisah/Pesisida Highlight.png"/>
         </Property>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="500" y="230" width="90" height="110"/>
+          <AbsoluteConstraints x="500" y="210" width="130" height="170"/>
         </Constraint>
       </Constraints>
     </Component>
