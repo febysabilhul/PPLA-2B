@@ -25,13 +25,16 @@ public class c_home {
     private toko vtoko;
     private JButton petak[] = new JButton[6];
 
-    private JLabel pupuklbl[] = new JLabel[6];
-
-    private JLabel obatlbl[] = new JLabel[6];
-
+   
     private JLabel air[] = new JLabel[6];
     private JLabel gulma[] = new JLabel[6];
     private JLabel tunas[] = new JLabel[6];
+    private JButton card = new JButton();
+    private JButton[] buttons = new JButton[6];
+
+    private JButton[] obatbtn = new JButton[6];
+
+    
     private int statusKotak[] = {1, 1, 1, 1, 1, 1};
     private int statusTime1[] = {0, 0, 0, 0, 0, 0};
     private int statusTime2[] = {0, 0, 0, 0, 0, 0};
@@ -42,6 +45,9 @@ public class c_home {
     private int pupuk;
     private int obat;
     private int koin;
+    private int datasiram;
+    private int datapupuk;
+    private int waktusiram;
     private String username;
     private int detikSiram = 0;
     private boolean detikSiram1 = false;
@@ -56,8 +62,7 @@ public class c_home {
         vHome.getBtntoko().addActionListener(new tokoAction());
         vHome.getBtnCangkul().addActionListener(new CangkulAction());
         vHome.getBtnGunting().addActionListener(new GuntingAction());
-        vHome.getBtnTangan().addActionListener(new TanganAction());
-        vHome.getBtnTangan2().addActionListener(new Tangan2Action());
+        
 
         vHome.getLblusername().setText(username);
         vHome.setVisible(true);
@@ -81,6 +86,21 @@ public class c_home {
         gulma[4] = vHome.getLblGulma4();
         gulma[5] = vHome.getLblGulma5();
 
+        buttons[0] = vHome.getBtnJbutton1();
+        buttons[1] = vHome.getBtnJbutton2();
+        buttons[2] = vHome.getBtnJbutton3();
+        buttons[3] = vHome.getBtnJbutton4();
+        buttons[4] = vHome.getBtnJbutton5();
+        buttons[5] = vHome.getBtnJbutton6();
+        
+        obatbtn[0]=vHome.getBtnObt1();
+        obatbtn[1]=vHome.getBtnObt2();
+        obatbtn[2]=vHome.getBtnObt3();
+        obatbtn[3]=vHome.getBtnObt4();
+        obatbtn[4]=vHome.getBtnObt5();
+        obatbtn[5]=vHome.getBtnObt6();
+        
+        
         tunas[0] = vHome.getLblTunas();
         tunas[1] = vHome.getLblTunas1();
         tunas[2] = vHome.getLblTunas2();
@@ -88,20 +108,7 @@ public class c_home {
         tunas[4] = vHome.getLblTunas4();
         tunas[5] = vHome.getLblTunas5();
 
-        obatlbl[0] = vHome.getLblObatlbl1();
-        obatlbl[1] = vHome.getLblObatlbl2();
-        obatlbl[2] = vHome.getLblObatlbl3();
-        obatlbl[3] = vHome.getLblObatlbl4();
-        obatlbl[4] = vHome.getLblObatlbl5();
-        obatlbl[5] = vHome.getLblObatlbl6();
-
-        pupuklbl[0] = vHome.getLblPupuklbl1();
-        pupuklbl[1] = vHome.getLblPupuklbl2();
-        pupuklbl[2] = vHome.getLblPupuklbl3();
-        pupuklbl[3] = vHome.getLblPupuklbl4();
-        pupuklbl[4] = vHome.getLblPupuklbl5();
-        pupuklbl[5] = vHome.getLblPupuklbl6();
-
+    
         for (int i = 0; i < air.length; i++) {
             air[i].setVisible(false);
         }
@@ -111,15 +118,6 @@ public class c_home {
         }
         for (int i = 0; i < gulma.length; i++) {
             tunas[i].setVisible(false);
-
-        }
-
-        for (int i = 0; i < pupuklbl.length; i++) {
-            pupuklbl[i].setVisible(false);
-
-        }
-        for (int i = 0; i < obatlbl.length; i++) {
-            obatlbl[i].setVisible(false);
 
         }
 
@@ -140,12 +138,19 @@ public class c_home {
         vHome.getBtnPetak5().addActionListener(new kotak5Action());
         vHome.getBtnPetak6().addActionListener(new kotak6Action());
 
-        vHome.getBtnAir().setEnabled(false);
+        vHome.getBtnJbutton1().addActionListener(new Jbutton1Action());
+        vHome.getBtnJbutton2().addActionListener(new Jbutton2Action());
+        vHome.getBtnJbutton3().addActionListener(new Jbutton3Action());
+        vHome.getBtnJbutton4().addActionListener(new Jbutton4Action());
+        vHome.getBtnJbutton5().addActionListener(new Jbutton5Action());
+        vHome.getBtnJbutton6().addActionListener(new Jbutton6Action());
+
+       
         vHome.getBtnCangkul().setEnabled(false);
         vHome.getBtnGunting().setEnabled(false);
-        vHome.getBtnTangan().setEnabled(false);
-        vHome.getBtnTangan2().setEnabled(false);
 
+        
+        
         t = new time();
         t.start();
     }
@@ -175,24 +180,16 @@ public class c_home {
         }
     }
 
-    private class TanganAction implements ActionListener {
+    private class Jbutton1Action implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
 
-            for (int i = 0; i < statusKotak.length; i++) {
-                if (statusKotak[i] == 3) {
+            air[0].setVisible(true);
+            buttons[0].setVisible(false);
 
-                    detikSiram1 = true;
-                    statusSiram[i] = true;
-                    pupuklbl[i].setVisible(false);
-                    air[i].setVisible(true);
+            air[0].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Mupuk.png")));
 
-                    air[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Mupuk.png")));
-
-                }
-
-            }
             if (pupuk > 0) {
                 pupuk -= 1;
                 try {
@@ -207,34 +204,122 @@ public class c_home {
         }
     }
 
-    private class Tangan2Action implements ActionListener {
+    private class Jbutton2Action implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
 
-            for (int i = 0; i < statusKotak.length; i++) {
-                if (statusKotak[i] == 3) {
+            air[0].setVisible(true);
+            buttons[0].setVisible(false);
 
-                    detikSiram1 = true;
-                    statusSiram[i] = true;
-                    obatlbl[i].setVisible(false);
-                    air[i].setVisible(true);
+            air[0].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Mupuk.png")));
 
-                    air[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Nyemprot.png")));
-
-                }
-
-            }
-            if (obat > 0) {
-                obat -= 1;
+            if (pupuk > 0) {
+                pupuk -= 1;
                 try {
-                    mAset.updateObat(obat, mAset.cekIdPlayer(username));
-                    vHome.getLblObat().setText(mAset.getObat(mAset.cekIdPlayer(username)) + "");
+                    mAset.updatePupuk(pupuk, mAset.cekIdPlayer(username));
+                    vHome.getLblPupuk().setText(mAset.getPupuk(mAset.cekIdPlayer(username)) + "");
                 } catch (SQLException ex) {
                     Logger.getLogger(c_home.class.getName()).log(Level.SEVERE, null, ex);
                 }
             } else {
-                JOptionPane.showMessageDialog(vHome, "Tidak punya obat");
+                JOptionPane.showMessageDialog(vHome, "Tidak punya pupuk");
+            }
+        }
+    }
+
+    private class Jbutton3Action implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+            air[0].setVisible(true);
+            buttons[0].setVisible(false);
+
+            air[0].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Mupuk.png")));
+
+            if (pupuk > 0) {
+                pupuk -= 1;
+                try {
+                    mAset.updatePupuk(pupuk, mAset.cekIdPlayer(username));
+                    vHome.getLblPupuk().setText(mAset.getPupuk(mAset.cekIdPlayer(username)) + "");
+                } catch (SQLException ex) {
+                    Logger.getLogger(c_home.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                JOptionPane.showMessageDialog(vHome, "Tidak punya pupuk");
+            }
+        }
+    }
+
+    private class Jbutton6Action implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+            air[0].setVisible(true);
+            buttons[0].setVisible(false);
+
+            air[0].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Mupuk.png")));
+
+            if (pupuk > 0) {
+                pupuk -= 1;
+                try {
+                    mAset.updatePupuk(pupuk, mAset.cekIdPlayer(username));
+                    vHome.getLblPupuk().setText(mAset.getPupuk(mAset.cekIdPlayer(username)) + "");
+                } catch (SQLException ex) {
+                    Logger.getLogger(c_home.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                JOptionPane.showMessageDialog(vHome, "Tidak punya pupuk");
+            }
+        }
+    }
+
+    private class Jbutton4Action implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+            air[0].setVisible(true);
+            buttons[0].setVisible(false);
+
+            air[0].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Mupuk.png")));
+
+            if (pupuk > 0) {
+                pupuk -= 1;
+                try {
+                    mAset.updatePupuk(pupuk, mAset.cekIdPlayer(username));
+                    vHome.getLblPupuk().setText(mAset.getPupuk(mAset.cekIdPlayer(username)) + "");
+                } catch (SQLException ex) {
+                    Logger.getLogger(c_home.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                JOptionPane.showMessageDialog(vHome, "Tidak punya pupuk");
+            }
+        }
+    }
+
+    private class Jbutton5Action implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+            air[0].setVisible(true);
+            buttons[0].setVisible(false);
+
+            air[0].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Mupuk.png")));
+
+            if (pupuk > 0) {
+                pupuk -= 1;
+                try {
+                    mAset.updatePupuk(pupuk, mAset.cekIdPlayer(username));
+                    vHome.getLblPupuk().setText(mAset.getPupuk(mAset.cekIdPlayer(username)) + "");
+                } catch (SQLException ex) {
+                    Logger.getLogger(c_home.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                JOptionPane.showMessageDialog(vHome, "Tidak punya pupuk");
             }
         }
     }
@@ -289,8 +374,12 @@ public class c_home {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            datasiram +=1;
+            datapupuk +=1;
+            
             int tes = 0;
-            for (int i = 0; i < statusKotak.length; i++) {
+            for (int i = 0; i < statusKotak.length; i++) {    
+                for (int j = 0; j < 5; j++) {
                 if (statusKotak[i] == 2) {
 
                     detikSiram1 = true;
@@ -298,10 +387,13 @@ public class c_home {
                     air[i].setVisible(true);
 //                    System.out.println("Coba");
                     air[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Siram.png")));
-                    //set gif menyiram
-                    //set label butuh air false
-                    vHome.getBtnAir().setEnabled(false);
+                    
                 }
+                    if (j==6) {
+                        air[i].setVisible(false);
+                    }
+                }
+                
             }
         }
     }
@@ -509,6 +601,7 @@ public class c_home {
                 statusTime2[3] = 0;
                 statusTime3[3] = 0;
             }
+
         }
     }
 
@@ -632,57 +725,89 @@ public class c_home {
 
                             statusTime1[i] += 1;
 
-                            if (statusTime1[i] == 10) {
+                            if (statusTime1[i] == 90) {
                                 air[i].setVisible(true);
                                 air[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/ngelak.png")));
-                                vHome.getBtnAir().setEnabled(true);
-
+                               
                                 statusair += 1;
                             }
-                            if (statusTime1[i] == 15) {
+                            if (statusTime1[i] == 95) {
                                 air[i].setVisible(false);
-                            } else if (statusTime1[i] == 20) {
+                            } else if (statusTime1[i] == 180) {
                                 air[i].setVisible(true);
                                 air[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/ngelak.png")));
-                                vHome.getBtnAir().setEnabled(true);
                                 statusair += 1;
                             }
-                            if (statusTime1[i] == 25) {
+                            if (statusTime1[i] == 185) {
                                 air[i].setVisible(false);
                             }
 
-                            if (statusTime1[i] == 30) {
-                                air[i].setVisible(true);
-                                air[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/ngelak.png")));
-                                vHome.getBtnAir().setEnabled(true);
+                            if (statusTime1[i] == 220) {
+                                buttons[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Pupuk Notif.png")));
                                 statusair += 1;
                             }
 
-                            if (statusTime1[i] == 35) {
+                            if (statusTime1[i] == 225) {
                                 air[i].setVisible(false);
                             }
-
-                            if (statusTime1[i] == 40) {
+                            
+                            if (statusTime1[i] == 270) {
                                 air[i].setVisible(true);
                                 air[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/ngelak.png")));
-                                vHome.getBtnAir().setEnabled(true);
                                 statusair += 1;
                             }
 
-                            if (statusTime1[i] == 45) {
+                            if (statusTime1[i] == 275) {
                                 air[i].setVisible(false);
                             }
 
-                            if (statusTime1[i] == 50) {
+                            if (statusTime1[i] == 365) {
                                 air[i].setVisible(true);
                                 air[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/ngelak.png")));
-                                vHome.getBtnAir().setEnabled(true);
+                                statusair += 1;
+                            }
+
+                            if (statusTime1[i] == 370) {
+                                air[i].setVisible(false);
+                            }
+
+                            if (statusTime1[i] == 460) {
+                                air[i].setVisible(true);
+                                air[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/ngelak.png")));
                                 statusair += 1;
 
                             }
 
-                            if (statusTime1[i] == 56) {
+                            if (statusTime1[i] == 465) {
                                 air[i].setVisible(false);
+                            }
+                            
+                            
+                            if (statusTime1[i] == 550) {
+                                air[i].setVisible(true);
+                                air[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/ngelak.png")));
+                                statusair += 1;
+
+                            }
+
+                            if (statusTime1[i] == 555) {
+                                air[i].setVisible(false);
+                            }
+                            
+                            if (statusTime1[i] == 600) {
+                              buttons[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Pupuk Notif.png")));
+                                statusair += 1;
+
+                            }
+
+                            if (statusTime1[i] == 605) {
+                                air[i].setVisible(false);
+                            }
+                            
+                            if (statusTime1[i] == 615) {
+                                if (datasiram>=8 && datapupuk<1) {
+                                    petak[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/GediBaru.png")));
+                                }
                             }
 
                         }
@@ -722,7 +847,9 @@ public class c_home {
                             if (statusTime2[i] == 90) {
                                 pupuklbl[i].setVisible(true);
                                 vHome.getBtnTangan().setEnabled(true);
-                                pupuklbl[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Pupuk Notif.png")));
+//                                pupuklbl[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Pupuk Notif.png")));
+                                buttons[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Pupuk Notif.png")));
+
                             }
 
                             if (statusTime2[i] == 95) {

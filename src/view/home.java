@@ -25,13 +25,7 @@ JLabel rum;
 public JButton getBtnAir() {
         return btnAir;
     }
-    public JButton getBtnTangan() {
-        return tangan;
-    }
-    public JButton getBtnTangan2() {
-        return tangan2;
-    }
-
+   
     public JButton getBtntoko() {
         return Btntoko;
     }
@@ -71,6 +65,48 @@ public JButton getBtnAir() {
         return petak6;
     }
 
+    public JButton getBtnObt1() {
+        return obt1;
+    }
+    
+    public JButton getBtnObt2() {
+        return obt2;
+    }
+    public JButton getBtnObt3() {
+        return obt2;
+    }
+    public JButton getBtnObt4() {
+        return obt4;
+    }
+    public JButton getBtnObt5() {
+        return obt5;
+    }
+    public JButton getBtnObt6() {
+        return obt6;
+    }
+    
+    
+    
+public JButton getBtnJbutton2() {
+        return jButton2;
+    }
+public JButton getBtnJbutton1() {
+        return jButton1;
+    }
+public JButton getBtnJbutton3() {
+        return jButton3;
+    }
+    public JButton getBtnJbutton4() {
+        return jButton4;
+    }
+    public JButton getBtnJbutton5() {
+        return jButton5;
+    }
+    public JButton getBtnJbutton6() {
+        return jButton6;
+    }
+        
+    
     
     public JLabel getLblObat() {
         return lblobat;
@@ -137,52 +173,9 @@ public JButton getBtnAir() {
     }
     
 
-    public JLabel getLblPupuklbl1() {
-        return pupuklbl1;
-    }
-    public JLabel getLblPupuklbl2() {
-        return pupuklbl2;
-    }
-    public JLabel getLblPupuklbl3() {
-        return pupuklbl3;
-    }
-    public JLabel getLblPupuklbl4() {
-        return pupuklbl4;
-    }
-    public JLabel getLblPupuklbl5() {
-        return pupuklbl5;
-    }
-    public JLabel getLblPupuklbl6() {
-        return pupuklbl6;
-    }
     
     
-    public JLabel getLblObatlbl1() {
-        return obatlbl1;
-    }
     
-    
-    public JLabel getLblObatlbl2() {
-        return obatlbl2;
-    }
-    
-    
-    public JLabel getLblObatlbl3() {
-        return obatlbl3;
-    }
-    
-    public JLabel getLblObatlbl4() {
-        return obatlbl4;
-    }
-    
-    
-    public JLabel getLblObatlbl6() {
-        return obatlbl6;
-    }
-    
-    public JLabel getLblObatlbl5() {
-        return obatlbl5;
-    }
     
     
     public JLabel getLblGulma5() {
@@ -223,18 +216,6 @@ public JButton getBtnAir() {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        obatlbl1 = new javax.swing.JLabel();
-        obatlbl2 = new javax.swing.JLabel();
-        obatlbl3 = new javax.swing.JLabel();
-        obatlbl4 = new javax.swing.JLabel();
-        obatlbl5 = new javax.swing.JLabel();
-        obatlbl6 = new javax.swing.JLabel();
-        pupuklbl1 = new javax.swing.JLabel();
-        pupuklbl2 = new javax.swing.JLabel();
-        pupuklbl3 = new javax.swing.JLabel();
-        pupuklbl4 = new javax.swing.JLabel();
-        pupuklbl5 = new javax.swing.JLabel();
-        pupuklbl6 = new javax.swing.JLabel();
         tunas = new javax.swing.JLabel();
         tunas2 = new javax.swing.JLabel();
         tunas3 = new javax.swing.JLabel();
@@ -270,55 +251,29 @@ public JButton getBtnAir() {
         btnKembali = new javax.swing.JButton();
         LblUsername = new javax.swing.JLabel();
         Btntoko = new javax.swing.JButton();
-        tangan = new javax.swing.JButton();
-        tangan2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        obt1 = new javax.swing.JButton();
+        obt2 = new javax.swing.JButton();
+        obt3 = new javax.swing.JButton();
+        obt4 = new javax.swing.JButton();
+        obt5 = new javax.swing.JButton();
+        obt6 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(800, 630));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        obatlbl1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Uler.png"))); // NOI18N
-        getContentPane().add(obatlbl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, -1, -1));
-
-        obatlbl2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Uler.png"))); // NOI18N
-        getContentPane().add(obatlbl2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, -1, -1));
-
-        obatlbl3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Uler.png"))); // NOI18N
-        getContentPane().add(obatlbl3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 200, -1, -1));
-
-        obatlbl4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Uler.png"))); // NOI18N
-        getContentPane().add(obatlbl4, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 390, -1, -1));
-
-        obatlbl5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Uler.png"))); // NOI18N
-        getContentPane().add(obatlbl5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 400, -1, -1));
-
-        obatlbl6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Uler.png"))); // NOI18N
-        getContentPane().add(obatlbl6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, -1, -1));
-
-        pupuklbl1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Sprint 3/Pisah/Pupuk Notif.png"))); // NOI18N
-        getContentPane().add(pupuklbl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 80, 60));
-
-        pupuklbl2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Sprint 3/Pisah/Pupuk Notif.png"))); // NOI18N
-        getContentPane().add(pupuklbl2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, -1, -1));
-
-        pupuklbl3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Sprint 3/Pisah/Pupuk Notif.png"))); // NOI18N
-        getContentPane().add(pupuklbl3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 260, -1, -1));
-
-        pupuklbl4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Sprint 3/Pisah/Pupuk Notif.png"))); // NOI18N
-        getContentPane().add(pupuklbl4, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 440, -1, -1));
-
-        pupuklbl5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Sprint 3/Pisah/Pupuk Notif.png"))); // NOI18N
-        getContentPane().add(pupuklbl5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 440, -1, -1));
-
-        pupuklbl6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Sprint 3/Pisah/Pupuk Notif.png"))); // NOI18N
-        getContentPane().add(pupuklbl6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, -1, -1));
-
         tunas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Tunas.png"))); // NOI18N
         getContentPane().add(tunas, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, -1, -1));
 
         tunas2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Tunas.png"))); // NOI18N
-        getContentPane().add(tunas2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 200, -1, -1));
+        getContentPane().add(tunas2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 200, -1, -1));
 
         tunas3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Tunas.png"))); // NOI18N
         getContentPane().add(tunas3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 390, -1, -1));
@@ -333,7 +288,7 @@ public JButton getBtnAir() {
         getContentPane().add(tunas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, -1, -1));
 
         gulma2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gulma.png"))); // NOI18N
-        getContentPane().add(gulma2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 190, 130, 160));
+        getContentPane().add(gulma2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 190, 130, 160));
 
         gulma3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gulma.png"))); // NOI18N
         getContentPane().add(gulma3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 390, -1, -1));
@@ -494,15 +449,59 @@ public JButton getBtnAir() {
         });
         getContentPane().add(Btntoko, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 50, 50));
 
-        tangan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Sprint 2/Pisah/tangan.png"))); // NOI18N
-        tangan.setBorderPainted(false);
-        tangan.setContentAreaFilled(false);
-        getContentPane().add(tangan, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 290, 60, 60));
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, 70, 60));
 
-        tangan2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Sprint 2/Pisah/tangan.png"))); // NOI18N
-        tangan2.setBorderPainted(false);
-        tangan2.setContentAreaFilled(false);
-        getContentPane().add(tangan2, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 350, 60, 60));
+        jButton2.setBorderPainted(false);
+        jButton2.setContentAreaFilled(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 250, -1, 60));
+
+        jButton3.setBorderPainted(false);
+        jButton3.setContentAreaFilled(false);
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 130, -1, -1));
+
+        jButton4.setBorderPainted(false);
+        jButton4.setContentAreaFilled(false);
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 360, -1, -1));
+
+        jButton5.setBorderPainted(false);
+        jButton5.setContentAreaFilled(false);
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 380, -1, -1));
+
+        jButton6.setBorderPainted(false);
+        jButton6.setContentAreaFilled(false);
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, -1, -1));
+
+        obt1.setBorderPainted(false);
+        obt1.setContentAreaFilled(false);
+        getContentPane().add(obt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, -1, -1));
+
+        obt2.setBorderPainted(false);
+        obt2.setContentAreaFilled(false);
+        getContentPane().add(obt2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, -1, -1));
+
+        obt3.setBorderPainted(false);
+        obt3.setContentAreaFilled(false);
+        getContentPane().add(obt3, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 250, -1, -1));
+
+        obt4.setBorderPainted(false);
+        obt4.setContentAreaFilled(false);
+        getContentPane().add(obt4, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 440, -1, 10));
+
+        obt5.setBorderPainted(false);
+        obt5.setContentAreaFilled(false);
+        getContentPane().add(obt5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 440, -1, -1));
+
+        obt6.setBorderPainted(false);
+        obt6.setContentAreaFilled(false);
+        getContentPane().add(obt6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 430, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Lahan Bersih.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 970, 660));
@@ -553,6 +552,10 @@ public JButton getBtnAir() {
     private void btnKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKembaliActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnKembaliActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -608,32 +611,30 @@ public JButton getBtnAir() {
     private javax.swing.JLabel gulma3;
     private javax.swing.JLabel gulma4;
     private javax.swing.JLabel gulma5;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel lblbibit;
     private javax.swing.JLabel lblkoin;
     private javax.swing.JLabel lblobat;
     private javax.swing.JLabel lblpupuk;
-    private javax.swing.JLabel obatlbl1;
-    private javax.swing.JLabel obatlbl2;
-    private javax.swing.JLabel obatlbl3;
-    private javax.swing.JLabel obatlbl4;
-    private javax.swing.JLabel obatlbl5;
-    private javax.swing.JLabel obatlbl6;
+    private javax.swing.JButton obt1;
+    private javax.swing.JButton obt2;
+    private javax.swing.JButton obt3;
+    private javax.swing.JButton obt4;
+    private javax.swing.JButton obt5;
+    private javax.swing.JButton obt6;
     private javax.swing.JButton petak1;
     private javax.swing.JButton petak2;
     private javax.swing.JButton petak3;
     private javax.swing.JButton petak4;
     private javax.swing.JButton petak5;
     private javax.swing.JButton petak6;
-    private javax.swing.JLabel pupuklbl1;
-    private javax.swing.JLabel pupuklbl2;
-    private javax.swing.JLabel pupuklbl3;
-    private javax.swing.JLabel pupuklbl4;
-    private javax.swing.JLabel pupuklbl5;
-    private javax.swing.JLabel pupuklbl6;
-    private javax.swing.JButton tangan;
-    private javax.swing.JButton tangan2;
     private javax.swing.JLabel tunas;
     private javax.swing.JLabel tunas1;
     private javax.swing.JLabel tunas2;

@@ -22,11 +22,15 @@ public class bantuan extends javax.swing.JFrame {
          this.setLocationRelativeTo(null);
     }
 
-    public JButton getBtnLanjut() {
-        return lanjut;
+    
+    public JButton getBtnToko() {
+        return toko;
+    }
+    public JButton getBtnSawah() {
+        return sawah;
     }
      public JLabel getLblGambar() {
-        return gambar;
+        return lblGambar;
     }
     
 
@@ -39,22 +43,33 @@ public class bantuan extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lanjut = new javax.swing.JButton();
-        gambar = new javax.swing.JLabel();
+        sawah = new javax.swing.JButton();
+        toko = new javax.swing.JButton();
+        lblGambar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lanjut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Part_2/Tombol/Next.png"))); // NOI18N
-        lanjut.setBorderPainted(false);
-        lanjut.setContentAreaFilled(false);
-        getContentPane().add(lanjut, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 560, -1, -1));
+        sawah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Part_2/Tombol/Next.png"))); // NOI18N
+        sawah.setBorderPainted(false);
+        sawah.setContentAreaFilled(false);
+        sawah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sawahActionPerformed(evt);
+            }
+        });
+        getContentPane().add(sawah, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 369, 620, 180));
 
-        gambar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/bantuan 1/1.png"))); // NOI18N
-        getContentPane().add(gambar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 590));
+        toko.setText("jButton1");
+        getContentPane().add(toko, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, -1, -1));
+        getContentPane().add(lblGambar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 590));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void sawahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sawahActionPerformed
+     
+    }//GEN-LAST:event_sawahActionPerformed
 
     /**
      * @param args the command line arguments
@@ -92,7 +107,8 @@ public class bantuan extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel gambar;
-    private javax.swing.JButton lanjut;
+    private javax.swing.JLabel lblGambar;
+    private javax.swing.JButton sawah;
+    private javax.swing.JButton toko;
     // End of variables declaration//GEN-END:variables
 }
