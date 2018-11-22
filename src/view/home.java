@@ -18,6 +18,7 @@ JLabel rum;
      * Creates new form home
      */
     public home() {
+        int datanyiram;
        
  initComponents();
         this.setLocationRelativeTo(this);
@@ -399,6 +400,11 @@ public JButton getBtnJbutton3() {
         btnAir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/inventory/Siram.png"))); // NOI18N
         btnAir.setBorderPainted(false);
         btnAir.setContentAreaFilled(false);
+        btnAir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAirMouseClicked(evt);
+            }
+        });
         btnAir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAirActionPerformed(evt);
@@ -556,6 +562,10 @@ public JButton getBtnJbutton3() {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void btnAirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAirMouseClicked
+      
+    }//GEN-LAST:event_btnAirMouseClicked
 
     /**
      * @param args the command line arguments

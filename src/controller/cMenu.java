@@ -150,7 +150,7 @@ public class cMenu {
                     mAset.insertAset();
 
                     JOptionPane.showMessageDialog(viewMenu, "Username " + viewMenu.getFieldUsername().getText() + " berhasil dibuat");
-                    new c_home(viewMenu.getFieldUsername().getText());
+                    new cbantuan(viewMenu.getFieldUsername().getText());
                     viewMenu.getUsernameFrame().dispose();
                     viewMenu.setVisible(false);
                 }

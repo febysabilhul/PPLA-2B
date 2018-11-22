@@ -26,6 +26,9 @@ public class helptoko extends javax.swing.JFrame {
      public JButton getBtnLanjut() {
         return lanjut;
     }
+      public JButton getBtnKembali() {
+        return kembali;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -38,13 +41,16 @@ public class helptoko extends javax.swing.JFrame {
 
         lblGambar = new javax.swing.JLabel();
         lanjut = new javax.swing.JButton();
+        kembali = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(lblGambar, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, 800, 580));
 
         lanjut.setText("jButton1");
         getContentPane().add(lanjut, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 540, -1, -1));
+
+        kembali.setText("jButton1");
+        getContentPane().add(kembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -85,6 +91,7 @@ public class helptoko extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton kembali;
     private javax.swing.JButton lanjut;
     private javax.swing.JLabel lblGambar;
     // End of variables declaration//GEN-END:variables

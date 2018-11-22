@@ -14,9 +14,6 @@ import javax.swing.JLabel;
  */
 public class bantuan extends javax.swing.JFrame {
 
-    /**
-     * Creates new form bantuan
-     */
     public bantuan() {
         initComponents();
          this.setLocationRelativeTo(null);
@@ -32,7 +29,8 @@ public class bantuan extends javax.swing.JFrame {
      public JLabel getLblGambar() {
         return lblGambar;
     }
-    
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.

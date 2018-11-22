@@ -17,15 +17,17 @@ import javax.swing.JOptionPane;
 import model.m_aset;
 import view.home;
 import view.toko;
+import java.util.Timer;
 
 public class c_home {
 
+    int siram = 0;
     private home vHome;
     private m_aset mAset;
+    Timer timer = new Timer();
     private toko vtoko;
     private JButton petak[] = new JButton[6];
-
-   
+    private static int cnt;
     private JLabel air[] = new JLabel[6];
     private JLabel gulma[] = new JLabel[6];
     private JLabel tunas[] = new JLabel[6];
@@ -34,19 +36,26 @@ public class c_home {
 
     private JButton[] obatbtn = new JButton[6];
 
-    
+    private int statusAir[] = {0, 0, 0, 0, 0, 0};
     private int statusKotak[] = {1, 1, 1, 1, 1, 1};
     private int statusTime1[] = {0, 0, 0, 0, 0, 0};
     private int statusTime2[] = {0, 0, 0, 0, 0, 0};
     private int statusTime3[] = {0, 0, 0, 0, 0, 0};
+    private int statusTime4[] = {0, 0, 0, 0, 0, 0};
     private boolean statusSiram[] = {false, false, false, false, false, false};
+
     private int bibit;
     private int kopi;
     private int pupuk;
     private int obat;
     private int koin;
     private int datasiram;
-    private int datapupuk;
+    private int datapupuk1;
+    private int datapupuk2;
+    private int datapupuk3;
+    private int datapupuk4;
+    private int datapupuk5;
+    private int datapupuk6;
     private int waktusiram;
     private String username;
     private int detikSiram = 0;
@@ -62,7 +71,6 @@ public class c_home {
         vHome.getBtntoko().addActionListener(new tokoAction());
         vHome.getBtnCangkul().addActionListener(new CangkulAction());
         vHome.getBtnGunting().addActionListener(new GuntingAction());
-        
 
         vHome.getLblusername().setText(username);
         vHome.setVisible(true);
@@ -92,15 +100,14 @@ public class c_home {
         buttons[3] = vHome.getBtnJbutton4();
         buttons[4] = vHome.getBtnJbutton5();
         buttons[5] = vHome.getBtnJbutton6();
-        
-        obatbtn[0]=vHome.getBtnObt1();
-        obatbtn[1]=vHome.getBtnObt2();
-        obatbtn[2]=vHome.getBtnObt3();
-        obatbtn[3]=vHome.getBtnObt4();
-        obatbtn[4]=vHome.getBtnObt5();
-        obatbtn[5]=vHome.getBtnObt6();
-        
-        
+
+        obatbtn[0] = vHome.getBtnObt1();
+        obatbtn[1] = vHome.getBtnObt2();
+        obatbtn[2] = vHome.getBtnObt3();
+        obatbtn[3] = vHome.getBtnObt4();
+        obatbtn[4] = vHome.getBtnObt5();
+        obatbtn[5] = vHome.getBtnObt6();
+
         tunas[0] = vHome.getLblTunas();
         tunas[1] = vHome.getLblTunas1();
         tunas[2] = vHome.getLblTunas2();
@@ -108,7 +115,6 @@ public class c_home {
         tunas[4] = vHome.getLblTunas4();
         tunas[5] = vHome.getLblTunas5();
 
-    
         for (int i = 0; i < air.length; i++) {
             air[i].setVisible(false);
         }
@@ -145,12 +151,16 @@ public class c_home {
         vHome.getBtnJbutton5().addActionListener(new Jbutton5Action());
         vHome.getBtnJbutton6().addActionListener(new Jbutton6Action());
 
-       
+        vHome.getBtnObt1().addActionListener(new BtnObt1Action());
+        vHome.getBtnObt2().addActionListener(new BtnObt2Action());
+        vHome.getBtnObt3().addActionListener(new BtnObt3Action());
+        vHome.getBtnObt4().addActionListener(new BtnObt4Action());
+        vHome.getBtnObt5().addActionListener(new BtnObt5Action());
+        vHome.getBtnObt6().addActionListener(new BtnObt6Action());
+
         vHome.getBtnCangkul().setEnabled(false);
         vHome.getBtnGunting().setEnabled(false);
 
-        
-        
         t = new time();
         t.start();
     }
@@ -180,10 +190,156 @@ public class c_home {
         }
     }
 
+    private class BtnObt1Action implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+            air[0].setVisible(true);
+            obatbtn[0].setVisible(false);
+
+            air[0].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Nyemprot.png")));
+
+            if (obat > 0) {
+                obat -= 1;
+                try {
+                    mAset.updateObat(pupuk, mAset.cekIdPlayer(username));
+                    vHome.getLblObat().setText(mAset.getObat(mAset.cekIdPlayer(username)) + "");
+                } catch (SQLException ex) {
+                    Logger.getLogger(c_home.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                JOptionPane.showMessageDialog(vHome, "Tidak punya obat");
+            }
+        }
+    }
+
+    private class BtnObt2Action implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+            air[1].setVisible(true);
+            obatbtn[1].setVisible(false);
+
+            air[1].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Nyemprot.png")));
+
+            if (obat > 0) {
+                obat -= 1;
+                try {
+                    mAset.updateObat(pupuk, mAset.cekIdPlayer(username));
+                    vHome.getLblObat().setText(mAset.getObat(mAset.cekIdPlayer(username)) + "");
+                } catch (SQLException ex) {
+                    Logger.getLogger(c_home.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                JOptionPane.showMessageDialog(vHome, "Tidak punya obat");
+            }
+        }
+    }
+
+    private class BtnObt3Action implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+            air[2].setVisible(true);
+            obatbtn[2].setVisible(false);
+
+            air[2].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Nyemprot.png")));
+
+            if (obat > 0) {
+                obat -= 1;
+                try {
+                    mAset.updateObat(pupuk, mAset.cekIdPlayer(username));
+                    vHome.getLblObat().setText(mAset.getObat(mAset.cekIdPlayer(username)) + "");
+                } catch (SQLException ex) {
+                    Logger.getLogger(c_home.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                JOptionPane.showMessageDialog(vHome, "Tidak punya obat");
+            }
+        }
+    }
+
+    private class BtnObt4Action implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+            air[3].setVisible(true);
+            obatbtn[3].setVisible(false);
+
+            air[3].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Nyemprot.png")));
+
+            if (obat > 0) {
+                obat -= 1;
+                try {
+                    mAset.updateObat(pupuk, mAset.cekIdPlayer(username));
+                    vHome.getLblObat().setText(mAset.getObat(mAset.cekIdPlayer(username)) + "");
+                } catch (SQLException ex) {
+                    Logger.getLogger(c_home.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                JOptionPane.showMessageDialog(vHome, "Tidak punya obat");
+            }
+        }
+    }
+
+    private class BtnObt5Action implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+            air[4].setVisible(true);
+            obatbtn[4].setVisible(false);
+
+            air[4].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Nyemprot.png")));
+
+            if (obat > 0) {
+                obat -= 1;
+                try {
+                    mAset.updateObat(pupuk, mAset.cekIdPlayer(username));
+                    vHome.getLblObat().setText(mAset.getObat(mAset.cekIdPlayer(username)) + "");
+                } catch (SQLException ex) {
+                    Logger.getLogger(c_home.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                JOptionPane.showMessageDialog(vHome, "Tidak punya obat");
+            }
+        }
+    }
+
+    private class BtnObt6Action implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+            air[5].setVisible(true);
+            obatbtn[5].setVisible(false);
+
+            air[5].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Nyemprot.png")));
+
+            if (obat > 0) {
+                obat -= 1;
+                try {
+                    mAset.updateObat(pupuk, mAset.cekIdPlayer(username));
+                    vHome.getLblObat().setText(mAset.getObat(mAset.cekIdPlayer(username)) + "");
+                } catch (SQLException ex) {
+                    Logger.getLogger(c_home.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                JOptionPane.showMessageDialog(vHome, "Tidak punya obat");
+            }
+        }
+    }
+
     private class Jbutton1Action implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+
+            datapupuk1++;
 
             air[0].setVisible(true);
             buttons[0].setVisible(false);
@@ -209,10 +365,11 @@ public class c_home {
         @Override
         public void actionPerformed(ActionEvent e) {
 
-            air[0].setVisible(true);
-            buttons[0].setVisible(false);
+            datapupuk2++;
+            air[1].setVisible(true);
+            buttons[1].setVisible(false);
 
-            air[0].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Mupuk.png")));
+            air[1].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Mupuk.png")));
 
             if (pupuk > 0) {
                 pupuk -= 1;
@@ -233,10 +390,11 @@ public class c_home {
         @Override
         public void actionPerformed(ActionEvent e) {
 
-            air[0].setVisible(true);
-            buttons[0].setVisible(false);
+            datapupuk3++;
+            air[2].setVisible(true);
+            buttons[2].setVisible(false);
 
-            air[0].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Mupuk.png")));
+            air[2].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Mupuk.png")));
 
             if (pupuk > 0) {
                 pupuk -= 1;
@@ -257,10 +415,11 @@ public class c_home {
         @Override
         public void actionPerformed(ActionEvent e) {
 
-            air[0].setVisible(true);
-            buttons[0].setVisible(false);
+            datapupuk6++;
+            air[5].setVisible(true);
+            buttons[5].setVisible(false);
 
-            air[0].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Mupuk.png")));
+            air[5].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Mupuk.png")));
 
             if (pupuk > 0) {
                 pupuk -= 1;
@@ -281,10 +440,11 @@ public class c_home {
         @Override
         public void actionPerformed(ActionEvent e) {
 
-            air[0].setVisible(true);
-            buttons[0].setVisible(false);
+            datapupuk4++;
+            air[3].setVisible(true);
+            buttons[3].setVisible(false);
 
-            air[0].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Mupuk.png")));
+            air[3].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Mupuk.png")));
 
             if (pupuk > 0) {
                 pupuk -= 1;
@@ -305,10 +465,11 @@ public class c_home {
         @Override
         public void actionPerformed(ActionEvent e) {
 
-            air[0].setVisible(true);
-            buttons[0].setVisible(false);
+            datapupuk5++;
+            air[4].setVisible(true);
+            buttons[4].setVisible(false);
 
-            air[0].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Mupuk.png")));
+            air[4].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Mupuk.png")));
 
             if (pupuk > 0) {
                 pupuk -= 1;
@@ -374,26 +535,122 @@ public class c_home {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            datasiram +=1;
-            datapupuk +=1;
-            
-            int tes = 0;
-            for (int i = 0; i < statusKotak.length; i++) {    
-                for (int j = 0; j < 5; j++) {
-                if (statusKotak[i] == 2) {
 
-                    detikSiram1 = true;
-                    statusSiram[i] = true;
-                    air[i].setVisible(true);
+//            datapupuk += 1;
+            siram++;
+
+            int tes = 0;
+
+            for (int i = 0; i < statusKotak.length; i++) {
+                switch (i) {
+                    case 1:
+                        if (statusKotak[0] == 2) {
+                            statusAir[0] += 1;
+
+                            if (siram % 2 == 0) {
+                                air[0].setVisible(false);
+                            } else {
+                                detikSiram1 = true;
+                                statusSiram[0] = true;
+                                air[0].setVisible(true);
+
 //                    System.out.println("Coba");
-                    air[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Siram.png")));
-                    
+                                air[0].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Siram.png")));
+
+                            }
+
+                        }
+                        break;
+                    case 2:
+                        if (statusKotak[1] == 2) {
+                            statusAir[1] += 1;
+
+                            if (siram % 2 == 0) {
+                                air[1].setVisible(false);
+                            } else {
+                                detikSiram1 = true;
+                                statusSiram[1] = true;
+                                air[1].setVisible(true);
+
+//                    System.out.println("Coba");
+                                air[1].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Siram.png")));
+
+                            }
+
+                        }
+                        break;
+                    case 3:
+                        if (statusKotak[2] == 2) {
+                            statusAir[2] += 1;
+
+                            if (siram % 2 == 0) {
+                                air[2].setVisible(false);
+                            } else {
+                                detikSiram1 = true;
+                                statusSiram[2] = true;
+                                air[2].setVisible(true);
+
+//                    System.out.println("Coba");
+                                air[2].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Siram.png")));
+
+                            }
+
+                        }
+                        break;
+                    case 4:
+                        if (statusKotak[3] == 2) {
+                            statusAir[3] += 1;
+
+                            if (siram % 2 == 0) {
+                                air[3].setVisible(false);
+                            } else {
+                                detikSiram1 = true;
+                                statusSiram[3] = true;
+                                air[3].setVisible(true);
+
+//                    System.out.println("Coba");
+                                air[3].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Siram.png")));
+
+                            }
+
+                        }
+                        break;
+                    case 5:
+                        if (statusKotak[4] == 2) {
+                            statusAir[4] += 1;
+
+                            if (siram % 2 == 0) {
+                                air[4].setVisible(false);
+                            } else {
+                                detikSiram1 = true;
+                                statusSiram[4] = true;
+                                air[4].setVisible(true);
+
+//                    System.out.println("Coba");
+                                air[4].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Siram.png")));
+
+                            }
+
+                        }
+                        break;
+                    case 6:
+                        if (statusKotak[5] == 2) {
+                            statusAir[5] += 1;
+
+                            if (siram % 2 == 0) {
+                                air[5].setVisible(false);
+                            } else {
+                                detikSiram1 = true;
+                                statusSiram[5] = true;
+                                air[5].setVisible(true);
+
+//                    System.out.println("Coba");
+                                air[5].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Siram.png")));
+
+                            }
+                        }
+
                 }
-                    if (j==6) {
-                        air[i].setVisible(false);
-                    }
-                }
-                
             }
         }
     }
@@ -408,6 +665,7 @@ public class c_home {
                     vHome.getBtnPetak1().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/CilikBaru.png")));
                     statusKotak[0] = 2;
                     bibit -= 1;
+                    statusAir[0] = 0;
                     try {
                         mAset.updateBibit(bibit, mAset.cekIdPlayer(username));
                         vHome.getLblBibit().setText(mAset.getBibit(mAset.cekIdPlayer(username)) + "");
@@ -418,17 +676,24 @@ public class c_home {
                     JOptionPane.showMessageDialog(vHome, "Tidak punya bibit");
                 }
             } else if (statusKotak[0] == 3) {//tumbuh 
-                vHome.getBtnPetak1().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/gundukan.png")));
-                vHome.getBtnPetak1().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/gundukan.png")));
-                koin += random.nextInt((3 - 2) + 1) + 2;
+                vHome.getBtnPetak1().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/SetengahGediBaru.png")));
+                vHome.getBtnPetak1().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/SetengahGediBaru.png")));
+                koin += 75;
+                try {
+                    mAset.updateKoin(koin, mAset.cekIdPlayer(username));
+                    vHome.getLblKoin().setText(mAset.getKoin(mAset.cekIdPlayer(username)) + "");
+                } catch (SQLException ex) {
+                    Logger.getLogger(c_home.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
                 statusKotak[0] = 1;
                 statusSiram[0] = false;
                 statusTime1[0] = 0;
                 statusTime2[0] = 0;
                 statusTime3[0] = 0;
             } else if (statusKotak[0] == 4) {//siap panen
-                vHome.getBtnPetak1().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/GediTok.png")));
-                vHome.getBtnPetak1().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/GediTok.png")));
+                vHome.getBtnPetak1().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png")));
+                vHome.getBtnPetak1().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png")));
                 koin += 150;
                 try {
                     mAset.updateKoin(koin, mAset.cekIdPlayer(username));
@@ -455,6 +720,7 @@ public class c_home {
                     vHome.getBtnPetak2().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/CilikBaru.png")));
                     statusKotak[1] = 2;
                     bibit -= 1;
+                    statusAir[1] = 0;
                     try {
                         mAset.updateBibit(bibit, mAset.cekIdPlayer(username));
                         vHome.getLblBibit().setText(mAset.getBibit(mAset.cekIdPlayer(username)) + "");
@@ -465,23 +731,24 @@ public class c_home {
                     JOptionPane.showMessageDialog(vHome, "Tidak punya bibit");
                 }
             } else if (statusKotak[1] == 3) {//tumbuh 
-                vHome.getBtnPetak2().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/gundukan.png")));
-                vHome.getBtnPetak2().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/gundukan.png")));
+                vHome.getBtnPetak2().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/SetengahGediBaru.png")));
+                vHome.getBtnPetak2().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/SetengahGediBaru.png")));
                 koin += random.nextInt((3 - 1) + 1) + 1;
-//                try {
-////                    mAset.updateJagung(jagung, mAset.cekIdPlayer(username));
-////                    vSawah.getLblJagung().setText(mAset.getJagung(mAset.cekIdPlayer(username)) + "");
-//                } catch (SQLException ex) {
-//                    Logger.getLogger(c_home.class.getName()).log(Level.SEVERE, null, ex);
-//                }
+                koin += 75;
+                try {
+                    mAset.updateKoin(koin, mAset.cekIdPlayer(username));
+                    vHome.getLblKoin().setText(mAset.getKoin(mAset.cekIdPlayer(username)) + "");
+                } catch (SQLException ex) {
+                    Logger.getLogger(c_home.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 statusKotak[1] = 1;
                 statusSiram[1] = false;
                 statusTime1[1] = 0;
                 statusTime2[1] = 0;
                 statusTime3[1] = 0;
             } else if (statusKotak[1] == 4) {//siap panen
-                vHome.getBtnPetak2().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/GediTok.png")));
-                vHome.getBtnPetak2().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/GediTok.png")));
+                vHome.getBtnPetak2().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png")));
+                vHome.getBtnPetak2().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png")));
                 koin += 150;
                 try {
                     mAset.updateKoin(koin, mAset.cekIdPlayer(username));
@@ -508,6 +775,7 @@ public class c_home {
                     vHome.getBtnPetak3().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/CilikBaru.png")));
                     statusKotak[2] = 2;
                     bibit -= 1;
+                    statusAir[2] = 0;
                     try {
                         mAset.updateBibit(bibit, mAset.cekIdPlayer(username));
                         vHome.getLblBibit().setText(mAset.getBibit(mAset.cekIdPlayer(username)) + "");
@@ -518,23 +786,24 @@ public class c_home {
                     JOptionPane.showMessageDialog(vHome, "Tidak punya bibit");
                 }
             } else if (statusKotak[2] == 3) {//tumbuh 
-                vHome.getBtnPetak3().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/gundukan.png")));
-                vHome.getBtnPetak3().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/gundukan.png")));
+                vHome.getBtnPetak3().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/SetengahGediBaru.png")));
+                vHome.getBtnPetak3().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/SetengahGediBaru.png")));
                 koin += random.nextInt((3 - 1) + 1) + 1;
-//                try {
-////                    mAset.updateJagung(jagung, mAset.cekIdPlayer(username));
-////                    vSawah.getLblJagung().setText(mAset.getJagung(mAset.cekIdPlayer(username)) + "");
-//                } catch (SQLException ex) {
-//                    Logger.getLogger(c_home.class.getName()).log(Level.SEVERE, null, ex);
-//                }
+                koin += 75;
+                try {
+                    mAset.updateKoin(koin, mAset.cekIdPlayer(username));
+                    vHome.getLblKoin().setText(mAset.getKoin(mAset.cekIdPlayer(username)) + "");
+                } catch (SQLException ex) {
+                    Logger.getLogger(c_home.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 statusKotak[2] = 1;
                 statusSiram[2] = false;
                 statusTime1[2] = 0;
                 statusTime2[2] = 0;
                 statusTime3[2] = 0;
             } else if (statusKotak[2] == 4) {//siap panen
-                vHome.getBtnPetak3().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/GediTok.png")));
-                vHome.getBtnPetak3().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/GediTok.png")));
+                vHome.getBtnPetak3().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png")));
+                vHome.getBtnPetak3().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png")));
                 koin += 150;
                 try {
                     mAset.updateKoin(koin, mAset.cekIdPlayer(username));
@@ -561,6 +830,7 @@ public class c_home {
                     vHome.getBtnPetak4().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/CilikBaru.png")));
                     statusKotak[3] = 2;
                     bibit -= 1;
+                    statusAir[3] = 0;
                     try {
                         mAset.updateBibit(bibit, mAset.cekIdPlayer(username));
                         vHome.getLblBibit().setText(mAset.getBibit(mAset.cekIdPlayer(username)) + "");
@@ -571,23 +841,24 @@ public class c_home {
                     JOptionPane.showMessageDialog(vHome, "Tidak punya bibit");
                 }
             } else if (statusKotak[3] == 3) {//tumbuh 
-                vHome.getBtnPetak4().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/gundukan.png")));
-                vHome.getBtnPetak4().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/gundukan.png")));
+                vHome.getBtnPetak4().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/SetengahGediBaru.png")));
+                vHome.getBtnPetak4().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/SetengahGediBaru.png")));
                 koin += random.nextInt((3 - 2) + 1) + 2;
-//                try {
-////                    mAset.updateJagung(jagung, mAset.cekIdPlayer(username));
-////                    vSawah.getLblJagung().setText(mAset.getJagung(mAset.cekIdPlayer(username)) + "");
-//                } catch (SQLException ex) {
-//                    Logger.getLogger(c_home.class.getName()).log(Level.SEVERE, null, ex);
-//                }
+                koin += 75;
+                try {
+                    mAset.updateKoin(koin, mAset.cekIdPlayer(username));
+                    vHome.getLblKoin().setText(mAset.getKoin(mAset.cekIdPlayer(username)) + "");
+                } catch (SQLException ex) {
+                    Logger.getLogger(c_home.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 statusKotak[3] = 1;
                 statusSiram[3] = false;
                 statusTime1[3] = 0;
                 statusTime2[3] = 0;
                 statusTime3[3] = 0;
             } else if (statusKotak[3] == 4) {//siap panen
-                vHome.getBtnPetak4().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/GediTok.png")));
-                vHome.getBtnPetak4().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/GediTok.png")));
+                vHome.getBtnPetak4().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png")));
+                vHome.getBtnPetak4().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png")));
                 koin += 150;
                 try {
                     mAset.updateKoin(koin, mAset.cekIdPlayer(username));
@@ -615,6 +886,7 @@ public class c_home {
                     vHome.getBtnPetak5().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/CilikBaru.png")));
                     statusKotak[4] = 2;
                     bibit -= 1;
+                    statusAir[4] = 0;
                     try {
                         mAset.updateBibit(bibit, mAset.cekIdPlayer(username));
                         vHome.getLblBibit().setText(mAset.getBibit(mAset.cekIdPlayer(username)) + "");
@@ -625,23 +897,24 @@ public class c_home {
                     JOptionPane.showMessageDialog(vHome, "Tidak punya bibit");
                 }
             } else if (statusKotak[4] == 3) {//tumbuh 
-                vHome.getBtnPetak5().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/gundukan.png")));
-                vHome.getBtnPetak5().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/gundukan.png")));
+                vHome.getBtnPetak5().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/SetengahGediBaru.png")));
+                vHome.getBtnPetak5().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/SetengahGediBaru.png")));
                 koin += random.nextInt((3 - 1) + 1) + 1;
-//                try {
-////                    mAset.updateJagung(jagung, mAset.cekIdPlayer(username));
-////                    vSawah.getLblJagung().setText(mAset.getJagung(mAset.cekIdPlayer(username)) + "");
-//                } catch (SQLException ex) {
-//                    Logger.getLogger(c_home.class.getName()).log(Level.SEVERE, null, ex);
-//                }
+                koin += 75;
+                try {
+                    mAset.updateKoin(koin, mAset.cekIdPlayer(username));
+                    vHome.getLblKoin().setText(mAset.getKoin(mAset.cekIdPlayer(username)) + "");
+                } catch (SQLException ex) {
+                    Logger.getLogger(c_home.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 statusKotak[4] = 1;
                 statusSiram[4] = false;
                 statusTime1[4] = 0;
                 statusTime2[4] = 0;
                 statusTime3[4] = 0;
             } else if (statusKotak[4] == 4) {//siap panen
-                vHome.getBtnPetak5().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/GediTok.png")));
-                vHome.getBtnPetak5().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/GediTok.png")));
+                vHome.getBtnPetak5().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png")));
+                vHome.getBtnPetak5().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png")));
                 koin += 150;
                 try {
                     mAset.updateKoin(koin, mAset.cekIdPlayer(username));
@@ -668,6 +941,7 @@ public class c_home {
                     vHome.getBtnPetak6().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/CilikBaru.png")));
                     statusKotak[5] = 2;
                     bibit -= 1;
+                    statusAir[5] = 0;
                     try {
                         mAset.updateBibit(bibit, mAset.cekIdPlayer(username));
                         vHome.getLblBibit().setText(mAset.getBibit(mAset.cekIdPlayer(username)) + "");
@@ -678,23 +952,23 @@ public class c_home {
                     JOptionPane.showMessageDialog(vHome, "Tidak punya bibit");
                 }
             } else if (statusKotak[5] == 3) {//tumbuh 
-                vHome.getBtnPetak6().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/gundukan.png")));
-                vHome.getBtnPetak6().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/gundukan.png")));
-                koin += random.nextInt((3 - 1) + 1) + 1;
-//                try {
-////                    mAset.updateJagung(jagung, mAset.cekIdPlayer(username));
-////                    vSawah.getLblJagung().setText(mAset.getJagung(mAset.cekIdPlayer(username)) + "");
-//                } catch (SQLException ex) {
-//                    Logger.getLogger(c_home.class.getName()).log(Level.SEVERE, null, ex);
-//                }
+                vHome.getBtnPetak6().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/SetengahGediBaru.png")));
+                vHome.getBtnPetak6().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/SetengahGediBaru.png")));
+                koin += 75;
+                try {
+                    mAset.updateKoin(koin, mAset.cekIdPlayer(username));
+                    vHome.getLblKoin().setText(mAset.getKoin(mAset.cekIdPlayer(username)) + "");
+                } catch (SQLException ex) {
+                    Logger.getLogger(c_home.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 statusKotak[5] = 1;
                 statusSiram[5] = false;
                 statusTime1[5] = 0;
                 statusTime2[5] = 0;
                 statusTime3[5] = 0;
             } else if (statusKotak[5] == 4) {//siap panen
-                vHome.getBtnPetak6().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/GediTok.png")));
-                vHome.getBtnPetak6().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/GediTok.png")));
+                vHome.getBtnPetak6().setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png")));
+                vHome.getBtnPetak6().setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png")));
                 koin += 150;
                 try {
                     mAset.updateKoin(koin, mAset.cekIdPlayer(username));
@@ -728,142 +1002,310 @@ public class c_home {
                             if (statusTime1[i] == 90) {
                                 air[i].setVisible(true);
                                 air[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/ngelak.png")));
-                               
+
                                 statusair += 1;
                             }
-                            if (statusTime1[i] == 95) {
-                                air[i].setVisible(false);
-                            } else if (statusTime1[i] == 180) {
+                            if (statusTime1[i] == 180) {
                                 air[i].setVisible(true);
                                 air[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/ngelak.png")));
                                 statusair += 1;
                             }
-                            if (statusTime1[i] == 185) {
-                                air[i].setVisible(false);
-                            }
 
-                            if (statusTime1[i] == 220) {
+                            if (statusTime1[i] == 240) {
+                                buttons[i].setVisible(true);
                                 buttons[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Pupuk Notif.png")));
                                 statusair += 1;
                             }
 
-                            if (statusTime1[i] == 225) {
-                                air[i].setVisible(false);
+                            if (statusTime1[i] == 245) {
+                                buttons[i].setVisible(false);
+
                             }
-                            
+
                             if (statusTime1[i] == 270) {
                                 air[i].setVisible(true);
                                 air[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/ngelak.png")));
                                 statusair += 1;
                             }
 
-                            if (statusTime1[i] == 275) {
-                                air[i].setVisible(false);
-                            }
-
-                            if (statusTime1[i] == 365) {
+                            if (statusTime1[i] == 360) {
                                 air[i].setVisible(true);
                                 air[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/ngelak.png")));
                                 statusair += 1;
                             }
 
-                            if (statusTime1[i] == 370) {
-                                air[i].setVisible(false);
-                            }
-
-                            if (statusTime1[i] == 460) {
+                            if (statusTime1[i] == 450) {
                                 air[i].setVisible(true);
                                 air[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/ngelak.png")));
                                 statusair += 1;
 
                             }
 
-                            if (statusTime1[i] == 465) {
-                                air[i].setVisible(false);
-                            }
-                            
-                            
-                            if (statusTime1[i] == 550) {
+                            if (statusTime1[i] == 540) {
                                 air[i].setVisible(true);
                                 air[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/ngelak.png")));
                                 statusair += 1;
 
                             }
 
-                            if (statusTime1[i] == 555) {
-                                air[i].setVisible(false);
-                            }
-                            
                             if (statusTime1[i] == 600) {
-                              buttons[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Pupuk Notif.png")));
+                                buttons[i].setVisible(true);
+                                buttons[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Pupuk Notif.png")));
                                 statusair += 1;
 
                             }
-
                             if (statusTime1[i] == 605) {
-                                air[i].setVisible(false);
+                                buttons[i].setVisible(false);
+
                             }
-                            
                             if (statusTime1[i] == 615) {
-                                if (datasiram>=8 && datapupuk<1) {
-                                    petak[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/GediBaru.png")));
+                                petak[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Tanaman Setengah Gedi.png")));
+
+                            }
+
+                            if (statusTime1[i] == 620) {
+                                if (statusAir[0] % 2 >= 8 && datapupuk1 <= 1) {
+                                    petak[0].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/New/sedang.png")));
+                                    if (statusTime1[i] == 630) {
+                                        petak[0].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png")));
+
+                                    }
+                                } else if (statusAir[1] % 2 >= 8 && datapupuk2 <= 1) {
+                                    petak[1].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/New/sedang.png")));
+                                    if (statusTime1[i] == 630) {
+                                        petak[1].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png")));
+
+                                    }
+                                } else if (statusAir[2] % 2 >= 8 && datapupuk3 <= 1) {
+                                    petak[2].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/New/sedang.png")));
+                                    if (statusTime1[i] == 630) {
+                                        petak[2].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png")));
+
+                                    }
+                                } else if (statusAir[3] % 2 >= 8 && datapupuk4 <= 1) {
+                                    petak[3].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/New/sedang.png")));
+                                    if (statusTime1[i] == 630) {
+                                        petak[3].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png")));
+
+                                    }
+                                } else if (statusAir[4] % 2 >= 8 && datapupuk5 <= 1) {
+                                    petak[4].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/New/sedang.png")));
+                                    if (statusTime1[i] == 630) {
+                                        petak[4].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png")));
+
+                                    }
+                                } else if (statusAir[5] % 2 >= 8 && datapupuk6 <= 1) {
+                                    petak[5].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/New/sedang.png")));
+                                    if (statusTime1[i] == 630) {
+                                        petak[5].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png")));
+
+                                    }
+                                } else if (statusAir[0] % 2 <= 3) {
+                                    petak[0].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/New/sedang.png")));
+                                    if (statusTime1[i] == 630) {
+                                        petak[0].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png")));
+
+                                    }
+                                } else if (statusAir[1] % 2 <= 3) {
+                                    petak[1].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/New/sedang.png")));
+                                    if (statusTime1[i] == 630) {
+                                        petak[1].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png")));
+
+                                    }
+                                } else if (statusAir[2] % 2 <= 3) {
+                                    petak[2].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/New/sedang.png")));
+                                    if (statusTime1[i] == 630) {
+                                        petak[2].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png")));
+
+                                    }
+                                } else if (statusAir[3] % 2 <= 3) {
+                                    petak[3].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/New/sedang.png")));
+                                    if (statusTime1[i] == 630) {
+                                        petak[3].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png")));
+
+                                    }
+                                } else if (statusAir[4] % 2 <= 3) {
+                                    petak[4].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/New/sedang.png")));
+                                    if (statusTime1[i] == 630) {
+                                        petak[4].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png")));
+
+                                    }
+                                } else if (statusAir[5] % 2 <= 3) {
+                                    petak[5].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/New/sedang.png")));
+                                    if (statusTime1[i] == 630) {
+                                        petak[5].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png")));
+
+                                    }
                                 }
+
                             }
 
                         }
 
                         if (statusSiram[i]) {
                             statusTime2[i] += 1;
-                            if (statusTime2[i] == 60) {
+                            if (statusTime2[i] == 660) {
                                 statusTime2[i] += 1;
                                 statusKotak[i] = 3;
                                 air[i].setVisible(false);
-                                petak[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/SetengahGediBaru.png")));
-                                petak[i].setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/SetengahGediBaru.png")));
+                                petak[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/New/sedang buah.png")));
+                                petak[i].setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/New/sedang buah highlight.png")));
                             }
 
-                            if (statusTime2[i] == 70) {
+                            if (statusTime2[i] == 704) {
+                                air[i].setVisible(true);
+
+                                air[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/ngelak.png")));
+                            }
+
+                            if (statusTime2[i] == 788) {
+                                air[i].setVisible(true);
+
+                                air[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/ngelak.png")));
+                            }
+
+                            if (statusTime2[i] == 862) {
+                                air[i].setVisible(true);
+
+                                air[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/ngelak.png")));
+                            }
+
+                            if (statusTime2[i] == 862) {
+                                buttons[i].setVisible(true);
+
+                                buttons[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Pupuk Notif.png")));
+                            }
+
+                            if (statusTime2[i] == 867) {
+                                buttons[i].setVisible(false);
+                            }
+
+                            if (statusTime2[i] == 880) {
                                 gulma[i].setVisible(true);
                                 vHome.getBtnCangkul().setEnabled(true);
                                 gulma[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gulma.png")));
                             }
 
-                            if (statusTime2[i] == 75) {
-                                air[i].setVisible(false);
+                            if (statusTime2[i] == 885) {
+                                gulma[i].setVisible(false);
+                            }
+                            if (statusTime2[i] == 900) {
+                                buttons[i].setVisible(true);
+
+                                buttons[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Pupuk Notif.png")));
                             }
 
-                            if (statusTime2[i] == 80) {
-                                gulma[i].setVisible(false);
-                                air[i].setVisible(false);
+                            if (statusTime2[i] == 905) {
+                                buttons[i].setVisible(false);
+                            }
+
+                            if (statusTime2[i] == 946) {
+                                air[i].setVisible(true);
+
+                                air[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/ngelak.png")));
+                            }
+                            if (statusTime2[i] == 1020) {
+                                air[i].setVisible(true);
+
+                                air[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/ngelak.png")));
+                            }
+
+                            if (statusTime2[i] == 1040) {
                                 tunas[i].setVisible(true);
                                 vHome.getBtnGunting().setEnabled(true);
                                 tunas[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Tunas.png")));
                             }
 
-                            if (statusTime2[i] == 85) {
-                                air[i].setVisible(false);
+                            if (statusTime2[i] == 1045) {
+                                tunas[i].setVisible(false);
                             }
 
-                            if (statusTime2[i] == 90) {
-                                pupuklbl[i].setVisible(true);
-                                vHome.getBtnTangan().setEnabled(true);
-//                                pupuklbl[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Pupuk Notif.png")));
-                                buttons[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Pupuk Notif.png")));
+                            if (statusTime2[i] == 1080) {
+                                obatbtn[i].setVisible(true);
 
+                                obatbtn[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Uler.png")));
+                            }
+                            if (statusTime2[i] == 1104) {
+                                air[i].setVisible(true);
+
+                                air[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/ngelak.png")));
                             }
 
-                            if (statusTime2[i] == 95) {
-                                air[i].setVisible(false);
-                            }
+                            if (statusTime1[i] == 1120) {
+                                if (statusAir[0] % 4 >= 8 && datapupuk1 <= 1) {
+                                    petak[0].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/New/sedang+buah busuk.png")));
+                                    if (statusTime1[i] == 1130) {
+                                        petak[0].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png")));
 
-                            if (statusTime2[i] == 100) {
-                                obatlbl[i].setVisible(true);
-                                vHome.getBtnTangan2().setEnabled(true);
-                                obatlbl[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Uler.png")));
-                            }
+                                    }
+                                } else if (statusAir[1] % 4 >= 8 && datapupuk2 <= 1) {
+                                    petak[1].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/New/sedang+buah busuk.png")));
+                                    if (statusTime1[i] == 1130) {
+                                        petak[1].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png")));
 
-                            if (statusTime2[i] == 104) {
-                                air[i].setVisible(false);
+                                    }
+                                } else if (statusAir[2] % 4 >= 8 && datapupuk3 <= 1) {
+                                    petak[2].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/New/sedang+buah busuk.png")));
+                                    if (statusTime1[i] == 1130) {
+                                        petak[2].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png")));
+
+                                    }
+                                } else if (statusAir[3] % 4 >= 8 && datapupuk4 <= 1) {
+                                    petak[3].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/New/sedang+buah busuk.png")));
+                                    if (statusTime1[i] == 1130) {
+                                        petak[3].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png")));
+
+                                    }
+                                } else if (statusAir[4] % 4 >= 8 && datapupuk5 <= 1) {
+                                    petak[4].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/New/sedang+buah busuk.png")));
+                                    if (statusTime1[i] == 1130) {
+                                        petak[4].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png")));
+
+                                    }
+                                } else if (statusAir[5] % 4 >= 8 && datapupuk6 <= 1) {
+                                    petak[5].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/New/sedang+buah busuk.png")));
+                                    if (statusTime1[i] == 1130) {
+                                        petak[5].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png")));
+
+                                    }
+                                } else if (statusAir[0] % 4 <= 3) {
+                                    petak[0].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/New/sedang+buah busuk.png")));
+                                    if (statusTime1[i] == 1130) {
+                                        petak[0].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png")));
+
+                                    }
+                                } else if (statusAir[1] % 4 <= 3) {
+                                    petak[1].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/New/sedang+buah busuk.png")));
+                                    if (statusTime1[i] == 1130) {
+                                        petak[1].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png")));
+
+                                    }
+                                } else if (statusAir[2] % 4 <= 3) {
+                                    petak[2].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/New/sedang+buah busuk.png")));
+                                    if (statusTime1[i] == 1130) {
+                                        petak[2].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png")));
+
+                                    }
+                                } else if (statusAir[3] % 4 <= 3) {
+                                    petak[3].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/New/sedang+buah busuk.png")));
+                                    if (statusTime1[i] == 1130) {
+                                        petak[3].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png")));
+
+                                    }
+                                } else if (statusAir[4] % 4 <= 3) {
+                                    petak[4].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/New/sedang+buah busuk.png")));
+                                    if (statusTime1[i] == 1130) {
+                                        petak[4].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png")));
+
+                                    }
+                                } else if (statusAir[5] % 4 <= 3) {
+                                    petak[5].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/New/sedang+buah busuk.png")));
+                                    if (statusTime1[i] == 1130) {
+                                        petak[5].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Gundukan.png")));
+
+                                    }
+                                }
+
                             }
 
                         }
@@ -871,13 +1313,39 @@ public class c_home {
                         if (statusKotak[i] == 3) {
                             statusTime3[i] += 1;
 
-                            if (statusTime3[i] == 115) {
-                                gulma[i].setVisible(false);
-                                air[i].setVisible(false);
+                            if (statusTime3[i] == 1150) {
+
+                                petak[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/GediTok.png")));
+                            }
+                            if (statusTime3[i] == 1270) {
+                                air[i].setVisible(true);
+
+                                air[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/ngelak.png")));
+                            }
+                            if (statusTime3[i] == 1390) {
+                                buttons[i].setVisible(true);
+
+                                buttons[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Pupuk Notif.png")));
+                            }
+
+                            if (statusTime3[i] == 1510) {
+                                air[i].setVisible(true);
+
+                                air[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/ngelak.png")));
+                            }
+
+                            if (statusTime3[i] == 1630) {
+                                buttons[i].setVisible(true);
+
+                                buttons[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/lahan/Pupuk Notif.png")));
+                            }
+
+                            if (statusTime3[i] == 1900) {
+
                                 statusKotak[i] = 4;
                                 petak[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/GediBaru.png")));
-                                petak[i].setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/GediBaru.png")));
                             }
+
                         }
                     }
 

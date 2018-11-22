@@ -112,8 +112,34 @@ public class cbantuan {
         vBantuan.getBtnToko().addActionListener(new tokoAction());
         
         vHelpSawah.getBtnLanjut().addActionListener(new LanjutAction());
+        
+        vHelpSawah.getBtnKembali().addActionListener(new KembaliAction());
 vHelpToko.getBtnLanjut().addActionListener(new LanjutAction());
 
+    }
+    
+    private class KembaliAction implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (posisi == "sawah") {
+                if (iBantuan == indexBantuan.length - 1) {
+                    iBantuan = 0;
+                } else {
+                    iBantuan -= 1;
+                }
+                vHelpSawah.getLblGambar().setIcon(new javax.swing.ImageIcon(getClass().getResource(indexBantuan[iBantuan])));
+            }
+            else  if (posisi == "toko") {
+                if (iToko == indexToko.length - 1) {
+                    iToko = 0;
+                } else {
+                    iToko -= 1;
+                }
+                vHelpToko.getLblGambar().setIcon(new javax.swing.ImageIcon(getClass().getResource(indexToko[iToko])));
+            }
+
+        }
     }
 
     private class LanjutAction implements ActionListener {

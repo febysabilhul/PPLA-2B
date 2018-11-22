@@ -14,9 +14,7 @@ import javax.swing.JLabel;
  */
 public class helpsawah extends javax.swing.JFrame {
 
-    /**
-     * Creates new form helpsawah
-     */
+   
     public helpsawah() {
         initComponents();
     }
@@ -25,6 +23,10 @@ public class helpsawah extends javax.swing.JFrame {
     }
      public JButton getBtnLanjut() {
         return lanjut;
+    }
+     
+     public JButton getBtnKembali() {
+        return kembali;
     }
 
     /**
@@ -37,6 +39,7 @@ public class helpsawah extends javax.swing.JFrame {
     private void initComponents() {
 
         lanjut = new javax.swing.JButton();
+        kembali = new javax.swing.JButton();
         lblGambar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -44,7 +47,10 @@ public class helpsawah extends javax.swing.JFrame {
 
         lanjut.setText("jButton1");
         getContentPane().add(lanjut, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 510, -1, -1));
-        getContentPane().add(lblGambar, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 4, 800, 580));
+
+        kembali.setText("jButton1");
+        getContentPane().add(kembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 510, -1, -1));
+        getContentPane().add(lblGambar, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 4, 860, 580));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -85,6 +91,7 @@ public class helpsawah extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton kembali;
     private javax.swing.JButton lanjut;
     private javax.swing.JLabel lblGambar;
     // End of variables declaration//GEN-END:variables
